@@ -24,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Application Version:**
- - Version [e.g. 22]
+Example: 0.01 etc
 
 **Additional context**
 Add any other context about the problem here.
