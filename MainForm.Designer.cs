@@ -250,7 +250,7 @@
             this.groupBox3.Controls.Add(this.textBox6);
             this.groupBox3.Controls.Add(this.label29);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Location = new System.Drawing.Point(435, 488);
+            this.groupBox3.Location = new System.Drawing.Point(405, 411);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(284, 88);
             this.groupBox3.TabIndex = 39;
@@ -313,9 +313,9 @@
             this.groupBox2.Controls.Add(this.label37);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Location = new System.Drawing.Point(6, 438);
+            this.groupBox2.Location = new System.Drawing.Point(345, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(423, 392);
+            this.groupBox2.Size = new System.Drawing.Size(396, 392);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Server";
@@ -329,7 +329,7 @@
             "False"});
             this.comboBox12.Location = new System.Drawing.Point(99, 320);
             this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(318, 28);
+            this.comboBox12.Size = new System.Drawing.Size(291, 28);
             this.comboBox12.TabIndex = 54;
             // 
             // comboBox11
@@ -341,7 +341,7 @@
             "False"});
             this.comboBox11.Location = new System.Drawing.Point(66, 286);
             this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(351, 28);
+            this.comboBox11.Size = new System.Drawing.Size(324, 28);
             this.comboBox11.TabIndex = 53;
             // 
             // comboBox10
@@ -353,7 +353,7 @@
             "False"});
             this.comboBox10.Location = new System.Drawing.Point(109, 252);
             this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(308, 28);
+            this.comboBox10.Size = new System.Drawing.Size(281, 28);
             this.comboBox10.TabIndex = 52;
             // 
             // comboBox9
@@ -365,7 +365,7 @@
             "False"});
             this.comboBox9.Location = new System.Drawing.Point(79, 218);
             this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(338, 28);
+            this.comboBox9.Size = new System.Drawing.Size(311, 28);
             this.comboBox9.TabIndex = 51;
             // 
             // label36
@@ -386,7 +386,7 @@
             "False"});
             this.comboBox8.Location = new System.Drawing.Point(107, 184);
             this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(310, 28);
+            this.comboBox8.Size = new System.Drawing.Size(283, 28);
             this.comboBox8.TabIndex = 48;
             // 
             // numericUpDown6
@@ -403,7 +403,7 @@
             0,
             0});
             this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(181, 27);
+            this.numericUpDown6.Size = new System.Drawing.Size(154, 27);
             this.numericUpDown6.TabIndex = 50;
             this.numericUpDown6.Value = new decimal(new int[] {
             256,
@@ -415,7 +415,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(63, 118);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(354, 27);
+            this.textBox5.Size = new System.Drawing.Size(327, 27);
             this.textBox5.TabIndex = 49;
             // 
             // label31
@@ -441,7 +441,7 @@
             0,
             0});
             this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(318, 27);
+            this.numericUpDown5.Size = new System.Drawing.Size(291, 27);
             this.numericUpDown5.TabIndex = 48;
             this.numericUpDown5.Value = new decimal(new int[] {
             20,
@@ -481,7 +481,7 @@
             0,
             0});
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(325, 27);
+            this.numericUpDown4.Size = new System.Drawing.Size(298, 27);
             this.numericUpDown4.TabIndex = 48;
             this.numericUpDown4.Value = new decimal(new int[] {
             25565,
@@ -493,7 +493,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(78, 20);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(339, 27);
+            this.textBox4.Size = new System.Drawing.Size(312, 27);
             this.textBox4.TabIndex = 48;
             // 
             // label24
@@ -578,9 +578,9 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Location = new System.Drawing.Point(435, 6);
+            this.groupBox1.Location = new System.Drawing.Point(3, 411);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(306, 476);
+            this.groupBox1.Size = new System.Drawing.Size(396, 476);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "World";
@@ -594,7 +594,7 @@
             "False"});
             this.comboBox7.Location = new System.Drawing.Point(83, 429);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(217, 28);
+            this.comboBox7.Size = new System.Drawing.Size(307, 28);
             this.comboBox7.TabIndex = 47;
             // 
             // comboBox6
@@ -606,7 +606,7 @@
             "False"});
             this.comboBox6.Location = new System.Drawing.Point(103, 395);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(197, 28);
+            this.comboBox6.Size = new System.Drawing.Size(287, 28);
             this.comboBox6.TabIndex = 46;
             // 
             // comboBox5
@@ -618,7 +618,7 @@
             "False"});
             this.comboBox5.Location = new System.Drawing.Point(44, 357);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(262, 28);
+            this.comboBox5.Size = new System.Drawing.Size(346, 28);
             this.comboBox5.TabIndex = 45;
             // 
             // comboBox4
@@ -630,7 +630,7 @@
             "False"});
             this.comboBox4.Location = new System.Drawing.Point(129, 323);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(173, 28);
+            this.comboBox4.Size = new System.Drawing.Size(261, 28);
             this.comboBox4.TabIndex = 44;
             // 
             // numericUpDown3
@@ -642,7 +642,7 @@
             0,
             0});
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(225, 27);
+            this.numericUpDown3.Size = new System.Drawing.Size(309, 27);
             this.numericUpDown3.TabIndex = 43;
             this.numericUpDown3.Value = new decimal(new int[] {
             2,
@@ -659,7 +659,7 @@
             "False"});
             this.comboBox3.Location = new System.Drawing.Point(105, 254);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(195, 28);
+            this.comboBox3.Size = new System.Drawing.Size(285, 28);
             this.comboBox3.TabIndex = 42;
             // 
             // numericUpDown2
@@ -676,7 +676,7 @@
             0,
             0});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(164, 27);
+            this.numericUpDown2.Size = new System.Drawing.Size(254, 27);
             this.numericUpDown2.TabIndex = 41;
             this.numericUpDown2.Value = new decimal(new int[] {
             256,
@@ -698,7 +698,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(176, 27);
+            this.numericUpDown1.Size = new System.Drawing.Size(266, 27);
             this.numericUpDown1.TabIndex = 40;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -715,14 +715,14 @@
             "False"});
             this.comboBox2.Location = new System.Drawing.Point(150, 156);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(156, 28);
+            this.comboBox2.Size = new System.Drawing.Size(240, 28);
             this.comboBox2.TabIndex = 39;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(144, 123);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(162, 27);
+            this.textBox3.Size = new System.Drawing.Size(246, 27);
             this.textBox3.TabIndex = 38;
             // 
             // comboBox1
@@ -735,21 +735,21 @@
             "AMPLIFIED"});
             this.comboBox1.Location = new System.Drawing.Point(96, 89);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 28);
+            this.comboBox1.Size = new System.Drawing.Size(294, 28);
             this.comboBox1.TabIndex = 37;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(107, 56);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(195, 27);
+            this.textBox2.Size = new System.Drawing.Size(283, 27);
             this.textBox2.TabIndex = 36;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(105, 23);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 27);
+            this.textBox1.Size = new System.Drawing.Size(285, 27);
             this.textBox1.TabIndex = 35;
             this.textBox1.Text = "world";
             // 
@@ -1040,7 +1040,7 @@
             "False"});
             this.comboBox13.Location = new System.Drawing.Point(135, 354);
             this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(282, 28);
+            this.comboBox13.Size = new System.Drawing.Size(255, 28);
             this.comboBox13.TabIndex = 55;
             // 
             // comboBox14
