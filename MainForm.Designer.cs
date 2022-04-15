@@ -98,6 +98,11 @@
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.comboBox11 = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -111,6 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -206,21 +212,18 @@
             // tabPage2
             // 
             this.tabPage2.AutoScroll = true;
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.label36);
             this.tabPage2.Controls.Add(this.label30);
-            this.tabPage2.Controls.Add(this.label29);
             this.tabPage2.Controls.Add(this.label28);
             this.tabPage2.Controls.Add(this.label26);
-            this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label3);
@@ -601,7 +604,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 183);
+            this.label29.Location = new System.Drawing.Point(6, 23);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(102, 20);
             this.label29.TabIndex = 28;
@@ -637,7 +640,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(194, 103);
+            this.label23.Location = new System.Drawing.Point(6, 286);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(54, 20);
             this.label23.TabIndex = 22;
@@ -673,7 +676,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(194, 3);
+            this.label18.Location = new System.Drawing.Point(6, 303);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(173, 20);
             this.label18.TabIndex = 17;
@@ -700,7 +703,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 223);
+            this.label12.Location = new System.Drawing.Point(6, 56);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(139, 20);
             this.label12.TabIndex = 11;
@@ -727,7 +730,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 123);
+            this.label7.Location = new System.Drawing.Point(6, 255);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 20);
             this.label7.TabIndex = 6;
@@ -771,6 +774,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox11);
+            this.groupBox2.Controls.Add(this.comboBox10);
             this.groupBox2.Controls.Add(this.comboBox9);
             this.groupBox2.Controls.Add(this.comboBox8);
             this.groupBox2.Controls.Add(this.numericUpDown6);
@@ -778,16 +783,18 @@
             this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.numericUpDown5);
             this.groupBox2.Controls.Add(this.label33);
+            this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.numericUpDown4);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label37);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Location = new System.Drawing.Point(6, 323);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(423, 257);
+            this.groupBox2.Size = new System.Drawing.Size(423, 319);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Server";
@@ -896,6 +903,57 @@
             this.comboBox9.Size = new System.Drawing.Size(338, 28);
             this.comboBox9.TabIndex = 51;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Location = new System.Drawing.Point(139, 15);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(284, 88);
+            this.groupBox3.TabIndex = 39;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Resource Pack";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(114, 20);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(164, 27);
+            this.textBox6.TabIndex = 48;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(151, 53);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(127, 27);
+            this.textBox7.TabIndex = 49;
+            // 
+            // comboBox10
+            // 
+            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.comboBox10.Location = new System.Drawing.Point(109, 252);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(308, 28);
+            this.comboBox10.TabIndex = 52;
+            // 
+            // comboBox11
+            // 
+            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox11.FormattingEnabled = true;
+            this.comboBox11.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.comboBox11.Location = new System.Drawing.Point(66, 286);
+            this.comboBox11.Name = "comboBox11";
+            this.comboBox11.Size = new System.Drawing.Size(351, 28);
+            this.comboBox11.TabIndex = 53;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -924,6 +982,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1000,5 +1060,10 @@
         private NumericUpDown numericUpDown5;
         private NumericUpDown numericUpDown4;
         private TextBox textBox4;
+        private GroupBox groupBox3;
+        private TextBox textBox7;
+        private TextBox textBox6;
+        private ComboBox comboBox11;
+        private ComboBox comboBox10;
     }
 }
