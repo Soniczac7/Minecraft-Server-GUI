@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Minecraft_Server_GUI
         #endregion
 
         #region Server Settings
+        /*
         string spawnprotection = "16";
         string generatorsettings = "";
         string forcegamemode = "false";
@@ -57,6 +59,7 @@ namespace Minecraft_Server_GUI
         string levelseed = "";
         string enablercon = "false";
         string motd = "";
+        */
         #endregion
 
         public MainForm()
@@ -74,13 +77,38 @@ namespace Minecraft_Server_GUI
             }
             if(Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
             {
+                // If there is no server specified then finish loading
                 toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
                 toolStripStatusLabel1.Text = "Done!";
                 return;
             }
+            // A server has been specified and loading will continue
             toolStripStatusLabel1.Text = "Loading: " + Settings1.Default.serverPath + "server.properties";
-
-
+            console.AppendText("[Server] Reading server.properties");
+            try
+            {
+                string[] serverProperties = File.ReadAllLines(Settings1.Default.serverPath + "server.properties");
+                console.Lines = serverProperties;
+                string spawnprotectionSetting = serverProperties[2];
+                if (spawnprotectionSetting.Contains("spawn-protection"))
+                {
+                    Debug.WriteLine("Found spawn-protection");
+                    string spawnprotection;
+                    spawnprotection = spawnprotectionSetting.Remove(0, 17);
+                    Debug.WriteLine("spawn-protection value is " + spawnprotection);
+                    decimal spawnprotectionValue = Convert.ToDecimal(spawnprotection);
+                    numericUpDown9.Value = spawnprotectionValue;
+                }
+                else
+                {
+                    Debug.WriteLine("Failed to find spawn-protection");
+                    console.AppendText("[Server] Failed to find spawn-protection in server.properties");
+                }
+            }
+            catch(Exception ex)
+            {
+                console.AppendText("[Error] " + ex.Message);
+            }
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
