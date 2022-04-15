@@ -103,6 +103,7 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.comboBox10 = new System.Windows.Forms.ComboBox();
             this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.comboBox12 = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -215,7 +216,6 @@
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.label36);
             this.tabPage2.Controls.Add(this.label30);
             this.tabPage2.Controls.Add(this.label28);
             this.tabPage2.Controls.Add(this.label26);
@@ -568,7 +568,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(6, 23);
+            this.label36.Location = new System.Drawing.Point(6, 323);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(87, 20);
             this.label36.TabIndex = 35;
@@ -774,9 +774,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox12);
             this.groupBox2.Controls.Add(this.comboBox11);
             this.groupBox2.Controls.Add(this.comboBox10);
             this.groupBox2.Controls.Add(this.comboBox9);
+            this.groupBox2.Controls.Add(this.label36);
             this.groupBox2.Controls.Add(this.comboBox8);
             this.groupBox2.Controls.Add(this.numericUpDown6);
             this.groupBox2.Controls.Add(this.textBox5);
@@ -794,7 +796,7 @@
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Location = new System.Drawing.Point(6, 323);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(423, 319);
+            this.groupBox2.Size = new System.Drawing.Size(423, 357);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Server";
@@ -954,6 +956,18 @@
             this.comboBox11.Size = new System.Drawing.Size(351, 28);
             this.comboBox11.TabIndex = 53;
             // 
+            // comboBox12
+            // 
+            this.comboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox12.FormattingEnabled = true;
+            this.comboBox12.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.comboBox12.Location = new System.Drawing.Point(99, 320);
+            this.comboBox12.Name = "comboBox12";
+            this.comboBox12.Size = new System.Drawing.Size(318, 28);
+            this.comboBox12.TabIndex = 54;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1065,5 +1079,6 @@
         private TextBox textBox6;
         private ComboBox comboBox11;
         private ComboBox comboBox10;
+        private ComboBox comboBox12;
     }
 }

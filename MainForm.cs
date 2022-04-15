@@ -72,6 +72,12 @@ namespace Minecraft_Server_GUI
                 // If the user has not navigated to a server before then show open server dialogue
                 getServer.ShowDialog();
             }
+            if(Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
+            {
+                toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
+                toolStripStatusLabel1.Text = "Done!";
+                return;
+            }
             toolStripStatusLabel1.Text = "Loading: " + Settings1.Default.serverPath + "server.properties";
 
 
