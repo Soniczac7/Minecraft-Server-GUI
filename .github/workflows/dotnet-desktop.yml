@@ -40,11 +40,12 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ master ]
+    #branches: [ master ]
   pull_request:
-    branches: [ master ]
+    #branches: [ master ]
   schedule:
   - cron: "0 2 * * 1-5"
+  workflow_dispatch:
 
 jobs:
 
