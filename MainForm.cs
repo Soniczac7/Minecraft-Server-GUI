@@ -28,6 +28,7 @@ namespace Minecraft_Server_GUI
             {
                 getServer.ShowDialog();
             }
+            toolStripStatusLabel1.Text = "Loading server at: " + Settings1.Default.serverPath;
         }
     }
 }
