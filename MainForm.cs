@@ -87,8 +87,9 @@ namespace Minecraft_Server_GUI
             console.AppendText("[Server] Reading server.properties");
             try
             {
+                // Read all lines of server.properties
                 string[] serverProperties = File.ReadAllLines(Settings1.Default.serverPath + "server.properties");
-                console.Lines = serverProperties;
+                // Process spawn-protection
                 string spawnprotectionSetting = serverProperties[2];
                 if (spawnprotectionSetting.Contains("spawn-protection"))
                 {
@@ -101,8 +102,25 @@ namespace Minecraft_Server_GUI
                 }
                 else
                 {
+                    // spawn-protection line did not contain "spawn-protection"
                     Debug.WriteLine("Failed to find spawn-protection");
-                    console.AppendText("[Server] Failed to find spawn-protection in server.properties");
+                    console.AppendText("[Error] Failed to find spawn-protection in server.properties");
+                }
+                // Process generator-settings
+                string generatorsettingsSetting = serverProperties[3];
+                if (generatorsettingsSetting.Contains("generator-settings"))
+                {
+                    Debug.WriteLine("Found generator-settings");
+                    string generatorsettings;
+                    generatorsettings = generatorsettingsSetting.Remove(0, 19);
+                    Debug.WriteLine("generator-settings value is " + generatorsettings);
+                    textBox3.Text = generatorsettings;
+                }
+                else
+                {
+                    // generator-settings line did not contain "generator-settings"
+                    Debug.WriteLine("Failed to find generator-settings");
+                    console.AppendText("[Error] Failed to find generator-settings in server.properties");
                 }
             }
             catch(Exception ex)
