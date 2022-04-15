@@ -40,11 +40,12 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ master ]
+    #branches: [ master ]
   pull_request:
-    branches: [ master ]
+    #branches: [ master ]
   schedule:
   - cron: "0 2 * * 1-5"
+  workflow_dispatch:
 
 jobs:
 
@@ -88,5 +89,4 @@ jobs:
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
-
 
