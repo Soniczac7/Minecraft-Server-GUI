@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,18 @@ namespace Minecraft_Server_GUI
 {
     public partial class MainForm : Form
     {
+        License license = new License();
         GetServer getServer = new GetServer();
-
-        public static string? serverPath;
 
         public MainForm()
         {
             InitializeComponent();
-            if(serverPath == null)
+            if(Settings1.Default.licenseShown == false)
+            {
+                license.ShowDialog();
+                
+            }
+            if (Settings1.Default.serverPath == null)
             {
                 getServer.ShowDialog();
             }
