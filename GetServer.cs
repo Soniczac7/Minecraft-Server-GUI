@@ -15,7 +15,7 @@ namespace Minecraft_Server_GUI
             DialogResult result = folderBrowserDialog1.ShowDialog();
             if(result == DialogResult.OK)
             {
-                Settings1.Default.serverPath = folderBrowserDialog1.SelectedPath;
+                Settings1.Default.serverPath = folderBrowserDialog1.SelectedPath + @"\";
                 Settings1.Default.Save();
                 this.Close();
 
