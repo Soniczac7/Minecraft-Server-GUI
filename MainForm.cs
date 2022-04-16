@@ -150,6 +150,70 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find force-gamemode");
                     console.AppendText("[Error] Failed to find force-gamemode in server.properties");
                 }
+                // Process allow-nether
+                string allownetherSetting = serverProperties[5];
+                if (allownetherSetting.Contains("allow-nether"))
+                {
+                    Debug.WriteLine("Found allow-nether");
+                    string allownether;
+                    allownether = allownetherSetting.Remove(0, 13);
+                    Debug.WriteLine("allow-nether value is " + allownether);
+                    if (allownether == "true")
+                    {
+                        comboBox3.SelectedIndex = 0;
+                    }
+                    else if (allownether == "false")
+                    {
+                        comboBox3.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // allow-nether is invalid
+                        console.AppendText("[Error] allow-nether in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // allow-nether line did not contain "allow-nether"
+                    Debug.WriteLine("Failed to find allow-nether");
+                    console.AppendText("[Error] Failed to find allow-nether in server.properties");
+                }
+                // Process gamemode
+                string gamemodeSetting = serverProperties[6];
+                if (gamemodeSetting.Contains("gamemode"))
+                {
+                    Debug.WriteLine("Found gamemode");
+                    string gamemode;
+                    gamemode = gamemodeSetting.Remove(0, 9);
+                    Debug.WriteLine("gamemode value is " + gamemode);
+                    if (gamemode == "0")
+                    {
+                        numericUpDown10.Value = 0;
+                    }
+                    else if (gamemode == "1")
+                    {
+                        numericUpDown10.Value = 1;
+                    }
+                    else if(gamemode == "2")
+                    {
+                        numericUpDown10.Value = 2;
+                    }
+                    else if(gamemode == "3")
+                    {
+                        numericUpDown10.Value = 3;
+                    }
+                    else
+                    {
+                        // gamemode is invalid
+                        console.AppendText("[Error] gamemode in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // gamemode line did not contain "gamemode"
+                    Debug.WriteLine("Failed to find gamemode");
+                    console.AppendText("[Error] Failed to find gamemode in server.properties");
+                }
             }
             catch(Exception ex)
             {
