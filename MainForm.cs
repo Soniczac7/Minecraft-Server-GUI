@@ -241,6 +241,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find broadcast-console-to-ops");
                     console.AppendText("\n[Error] Failed to find broadcast-console-to-ops in server.properties");
                 }
+                // Proccess enable-query
+                string enablequerySetting = serverProperties[8];
+                if (enablequerySetting.Contains("enable-query"))
+                {
+                    Debug.WriteLine("Found enable-query");
+                    string enablequery;
+                    enablequery = enablequerySetting.Remove(0, 13);
+                    Debug.WriteLine("enable-query value is " + enablequery);
+                    if (enablequery == "true")
+                    {
+                        comboBox10.SelectedIndex = 0;
+                    }
+                    else if (enablequery == "false")
+                    {
+                        comboBox10.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // enable-query is invalid
+                        console.AppendText("\n[Error] enable-query in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // enable-query line did not contain "enable-query"
+                    Debug.WriteLine("Failed to find enable-query");
+                    console.AppendText("\n[Error] Failed to find enable-query in server.properties");
+                }
             }
             catch(Exception ex)
             {
