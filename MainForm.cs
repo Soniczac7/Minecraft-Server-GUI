@@ -332,6 +332,23 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find spawn-monsters");
                     console.AppendText("\n[Error] Failed to find spawn-monsters in server.properties");
                 }
+                // Process op-permission-level
+                string oppermissionlevelSetting = serverProperties[12];
+                if (oppermissionlevelSetting.Contains("op-permission-level"))
+                {
+                    Debug.WriteLine("Found op-permission-level");
+                    string oppermissionlevel;
+                    oppermissionlevel = oppermissionlevelSetting.Remove(0, 20);
+                    Debug.WriteLine("op-permission-level value is " + oppermissionlevel);
+                    decimal oppermissionlevelValue = Convert.ToDecimal(oppermissionlevel);
+                    numericUpDown7.Value = oppermissionlevelValue;
+                }
+                else
+                {
+                    // op-permission-level is invalid
+                    Debug.WriteLine(serverProperties[12]);
+                    console.AppendText("\n[Error op-permission-level in server.properties contains an invalid value");
+                }
             }
             catch(Exception ex)
             {
