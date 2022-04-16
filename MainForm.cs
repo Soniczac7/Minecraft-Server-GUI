@@ -69,7 +69,7 @@ namespace Minecraft_Server_GUI
                 // Show the license dialogue if the user has not seen the license dialogue yet
                 license.ShowDialog();
             }
-            MessageBox.Show("This application is very early in development. Exxpect missing functionality and bugs.\nIf you encounter any issues make sure to open an issue in the github at:\nhttps://github.com/Soniczac7/Minecraft-Server-GUI/issues", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("This application is very early in development.\nExpect missing functionality and bugs.\nIf you have any issues make sure to open an issue in the github at:\nhttps://github.com/Soniczac7/Minecraft-Server-GUI/issues", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
             {
                 // If the user has not navigated to a server before then show open server dialogue
