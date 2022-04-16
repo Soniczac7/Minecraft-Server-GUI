@@ -17,7 +17,6 @@ namespace Minecraft_Server_GUI
         #region Form Definition
         License license = new License();
         GetServer getServer = new GetServer();
-        Settings settings = new Settings();
         #endregion
 
         #region Server Settings
@@ -104,7 +103,7 @@ namespace Minecraft_Server_GUI
                 {
                     // spawn-protection line did not contain "spawn-protection"
                     Debug.WriteLine("Failed to find spawn-protection");
-                    console.AppendText("[Error] Failed to find spawn-protection in server.properties");
+                    console.AppendText("\n[Error] Failed to find spawn-protection in server.properties");
                 }
                 // Process generator-settings
                 string generatorsettingsSetting = serverProperties[3];
@@ -120,7 +119,7 @@ namespace Minecraft_Server_GUI
                 {
                     // generator-settings line did not contain "generator-settings"
                     Debug.WriteLine("Failed to find generator-settings");
-                    console.AppendText("[Error] Failed to find generator-settings in server.properties");
+                    console.AppendText("\n[Error] Failed to find generator-settings in server.properties");
                 }
                 // Proccess force-gamemode
                 string forcegamemodeSetting = serverProperties[4];
@@ -141,14 +140,14 @@ namespace Minecraft_Server_GUI
                     else
                     {
                         // force-gamemode is invalid
-                        console.AppendText("[Error] force-gamemode in server.properties contains an invalid value");
+                        console.AppendText("\n[Error] force-gamemode in server.properties contains an invalid value");
                     }
                 }
                 else
                 {
                     // force-gamemode line did not contain "force-gamemode"
                     Debug.WriteLine("Failed to find force-gamemode");
-                    console.AppendText("[Error] Failed to find force-gamemode in server.properties");
+                    console.AppendText("\n[Error] Failed to find force-gamemode in server.properties");
                 }
                 // Process allow-nether
                 string allownetherSetting = serverProperties[5];
@@ -169,14 +168,14 @@ namespace Minecraft_Server_GUI
                     else
                     {
                         // allow-nether is invalid
-                        console.AppendText("[Error] allow-nether in server.properties contains an invalid value");
+                        console.AppendText("\n[Error] allow-nether in server.properties contains an invalid value");
                     }
                 }
                 else
                 {
                     // allow-nether line did not contain "allow-nether"
                     Debug.WriteLine("Failed to find allow-nether");
-                    console.AppendText("[Error] Failed to find allow-nether in server.properties");
+                    console.AppendText("\n[Error] Failed to find allow-nether in server.properties");
                 }
                 // Process gamemode
                 string gamemodeSetting = serverProperties[6];
@@ -205,25 +204,54 @@ namespace Minecraft_Server_GUI
                     else
                     {
                         // gamemode is invalid
-                        console.AppendText("[Error] gamemode in server.properties contains an invalid value");
+                        console.AppendText("\n[Error] gamemode in server.properties contains an invalid value");
                     }
                 }
                 else
                 {
                     // gamemode line did not contain "gamemode"
                     Debug.WriteLine("Failed to find gamemode");
-                    console.AppendText("[Error] Failed to find gamemode in server.properties");
+                    console.AppendText("\n[Error] Failed to find gamemode in server.properties");
+                }
+                // Proccess broadcast-console-to-ops
+                string consoletoopSetting = serverProperties[7];
+                if (consoletoopSetting.Contains("broadcast-console-to-ops"))
+                {
+                    Debug.WriteLine("Found broadcast-console-to-ops");
+                    string consoletoop;
+                    consoletoop = consoletoopSetting.Remove(0, 25);
+                    Debug.WriteLine("force-gamemode value is " + consoletoop);
+                    if (consoletoop == "true")
+                    {
+                        comboBox14.SelectedIndex = 0;
+                    }
+                    else if (consoletoop == "false")
+                    {
+                        comboBox14.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // broadcast-console-to-ops is invalid
+                        console.AppendText("\n[Error] broadcast-console-to-ops in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // broadcast-console-to-ops line did not contain "broadcast-console-to-ops"
+                    Debug.WriteLine("Failed to find broadcast-console-to-ops");
+                    console.AppendText("\n[Error] Failed to find broadcast-console-to-ops in server.properties");
                 }
             }
             catch(Exception ex)
             {
-                console.AppendText("[Error] " + ex.Message);
+                console.AppendText("\n[Error] " + ex.Message);
             }
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
             // Show the settings form
+            Settings settings = new Settings();
             settings.Show();
         }
     }

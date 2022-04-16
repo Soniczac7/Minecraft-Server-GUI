@@ -40,6 +40,7 @@
             this.console = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboBox17 = new System.Windows.Forms.ComboBox();
             this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
             this.comboBox19 = new System.Windows.Forms.ComboBox();
             this.comboBox18 = new System.Windows.Forms.ComboBox();
@@ -116,7 +117,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox17 = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -275,6 +275,18 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "In-Game";
             // 
+            // comboBox17
+            // 
+            this.comboBox17.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox17.FormattingEnabled = true;
+            this.comboBox17.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.comboBox17.Location = new System.Drawing.Point(139, 260);
+            this.comboBox17.Name = "comboBox17";
+            this.comboBox17.Size = new System.Drawing.Size(185, 28);
+            this.comboBox17.TabIndex = 56;
+            // 
             // numericUpDown11
             // 
             this.numericUpDown11.Location = new System.Drawing.Point(148, 360);
@@ -395,9 +407,8 @@
             this.comboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox14.FormattingEnabled = true;
             this.comboBox14.Items.AddRange(new object[] {
-            "DEFAULT",
-            "FLAT",
-            "AMPLIFIED"});
+            "True",
+            "False"});
             this.comboBox14.Location = new System.Drawing.Point(190, 59);
             this.comboBox14.Name = "comboBox14";
             this.comboBox14.Size = new System.Drawing.Size(134, 28);
@@ -1171,18 +1182,6 @@
             this.label14.TabIndex = 13;
             this.label14.Text = "PvP";
             // 
-            // comboBox17
-            // 
-            this.comboBox17.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.comboBox17.Location = new System.Drawing.Point(139, 260);
-            this.comboBox17.Name = "comboBox17";
-            this.comboBox17.Size = new System.Drawing.Size(185, 28);
-            this.comboBox17.TabIndex = 56;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1191,6 +1190,8 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Minecraft Server GUI";
             this.statusStrip1.ResumeLayout(false);
