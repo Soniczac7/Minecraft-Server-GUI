@@ -287,6 +287,23 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find player-idle-timeout");
                     console.AppendText("\n[Error] Failed to find player-idle-timeout in server.properties");
                 }
+                // Process difficulty
+                string difficultySetting = serverProperties[10];
+                if (difficultySetting.Contains("difficulty"))
+                {
+                    Debug.WriteLine("Found difficulty");
+                    string difficulty;
+                    difficulty = difficultySetting.Remove(0, 11);
+                    Debug.WriteLine("difficulty value is " + difficulty);
+                    decimal difficultyValue = Convert.ToDecimal(difficulty);
+                    numericUpDown3.Value = difficultyValue;
+                }
+                else
+                {
+                    // difficulty line did not contain "difficulty"
+                    Debug.WriteLine("Failed to find difficulty");
+                    console.AppendText("\n[Error] Failed to find difficulty in server.properties");
+                }
             }
             catch(Exception ex)
             {
