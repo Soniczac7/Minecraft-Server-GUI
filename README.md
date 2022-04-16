@@ -4,7 +4,7 @@
 Minecraft Server GUI is a useful application which automatically creates and hosts a Minecraft server for you.
 The only setup that you need to do is input your desired server settings and click run!
 
-This project has only just started and will be incomplete.
+***This project has only just started and will be incomplete.***
 
 If you have any issues please feel free to make an issue report!
 
@@ -20,3 +20,7 @@ If you have any issues please feel free to make an issue report!
 * Unzip the contents to your desired location.
 * Open Visual Studio 2022 and open the project.
 * Build the application.
+
+## Contributing
+If you would like to contribute to this repository, feel free to [fork the repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to our current `dev` branch.
+The project uses .NET 6.0 so make sure you have the [SDK](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-6.0.202-windows-x64-installer) and [runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime) installed on your computer.
