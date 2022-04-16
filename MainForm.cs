@@ -304,6 +304,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find difficulty");
                     console.AppendText("\n[Error] Failed to find difficulty in server.properties");
                 }
+                // Process spawn-monsters
+                string spawnmonstersSetting = serverProperties[11];
+                if (spawnmonstersSetting.Contains("spawn-monsters"))
+                {
+                    Debug.WriteLine("Found spawn-monsters");
+                    string spawnmonsters;
+                    spawnmonsters = spawnmonstersSetting.Remove(0, 15);
+                    Debug.WriteLine("spawn-monsters value is " + spawnmonsters);
+                    if (spawnmonsters == "true")
+                    {
+                        comboBox4.SelectedIndex = 0;
+                    }
+                    else if (spawnmonsters == "false")
+                    {
+                        comboBox4.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // spawn-monsters is invalid
+                        console.AppendText("\n[Error] spawn-monsters in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // spawn-monsters line did not contain "spawn-monsters"
+                    Debug.WriteLine("Failed to find spawn-monsters");
+                    console.AppendText("\n[Error] Failed to find spawn-monsters in server.properties");
+                }
             }
             catch(Exception ex)
             {
