@@ -122,6 +122,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find generator-settings");
                     console.AppendText("[Error] Failed to find generator-settings in server.properties");
                 }
+                // Proccess force-gamemode
+                string forcegamemodeSetting = serverProperties[4];
+                if (forcegamemodeSetting.Contains("force-gamemode"))
+                {
+                    Debug.WriteLine("Found force-gamemode");
+                    string forcegamemode;
+                    forcegamemode = forcegamemodeSetting.Remove(0, 15);
+                    Debug.WriteLine("force-gamemode value is " + forcegamemode);
+                    if(forcegamemode == "true")
+                    {
+                        comboBox17.SelectedIndex = 0;
+                    }
+                    else if(forcegamemode == "false")
+                    {
+                        comboBox17.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // force-gamemode is invalid
+                        console.AppendText("[Error] force-gamemode in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // force-gamemode line did not contain "force-gamemode"
+                    Debug.WriteLine("Failed to find force-gamemode");
+                    console.AppendText("[Error] Failed to find force-gamemode in server.properties");
+                }
             }
             catch(Exception ex)
             {

@@ -43,7 +43,6 @@
             this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
             this.comboBox19 = new System.Windows.Forms.ComboBox();
             this.comboBox18 = new System.Windows.Forms.ComboBox();
-            this.comboBox17 = new System.Windows.Forms.ComboBox();
             this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
@@ -117,6 +116,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.comboBox17 = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -246,10 +246,10 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.comboBox17);
             this.groupBox4.Controls.Add(this.numericUpDown11);
             this.groupBox4.Controls.Add(this.comboBox19);
             this.groupBox4.Controls.Add(this.comboBox18);
-            this.groupBox4.Controls.Add(this.comboBox17);
             this.groupBox4.Controls.Add(this.numericUpDown10);
             this.groupBox4.Controls.Add(this.numericUpDown9);
             this.groupBox4.Controls.Add(this.numericUpDown8);
@@ -312,19 +312,6 @@
             this.comboBox18.Name = "comboBox18";
             this.comboBox18.Size = new System.Drawing.Size(225, 28);
             this.comboBox18.TabIndex = 54;
-            // 
-            // comboBox17
-            // 
-            this.comboBox17.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Items.AddRange(new object[] {
-            "DEFAULT",
-            "FLAT",
-            "AMPLIFIED"});
-            this.comboBox17.Location = new System.Drawing.Point(139, 260);
-            this.comboBox17.Name = "comboBox17";
-            this.comboBox17.Size = new System.Drawing.Size(185, 28);
-            this.comboBox17.TabIndex = 53;
             // 
             // numericUpDown10
             // 
@@ -1184,6 +1171,18 @@
             this.label14.TabIndex = 13;
             this.label14.Text = "PvP";
             // 
+            // comboBox17
+            // 
+            this.comboBox17.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox17.FormattingEnabled = true;
+            this.comboBox17.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.comboBox17.Location = new System.Drawing.Point(139, 260);
+            this.comboBox17.Name = "comboBox17";
+            this.comboBox17.Size = new System.Drawing.Size(185, 28);
+            this.comboBox17.TabIndex = 56;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1306,7 +1305,6 @@
         private NumericUpDown numericUpDown11;
         private ComboBox comboBox19;
         private ComboBox comboBox18;
-        private ComboBox comboBox17;
         private NumericUpDown numericUpDown10;
         private NumericUpDown numericUpDown9;
         private NumericUpDown numericUpDown8;
@@ -1315,5 +1313,6 @@
         private ComboBox comboBox14;
         private NumericUpDown numericUpDown7;
         private ComboBox comboBox13;
+        private ComboBox comboBox17;
     }
 }
