@@ -69,6 +69,7 @@ namespace Minecraft_Server_GUI
                 // Show the license dialogue if the user has not seen the license dialogue yet
                 license.ShowDialog();
             }
+            MessageBox.Show("This application is very early in development. Exxpect missing functionality and bugs.\nIf you encounter any issues make sure to open an issue in the github at:\nhttps://github.com/Soniczac7/Minecraft-Server-GUI/issues", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
             {
                 // If the user has not navigated to a server before then show open server dialogue
@@ -268,6 +269,23 @@ namespace Minecraft_Server_GUI
                     // enable-query line did not contain "enable-query"
                     Debug.WriteLine("Failed to find enable-query");
                     console.AppendText("\n[Error] Failed to find enable-query in server.properties");
+                }
+                // Process player-idle-timeout
+                string playeridletimeoutSetting = serverProperties[9];
+                if (playeridletimeoutSetting.Contains("player-idle-timeout"))
+                {
+                    Debug.WriteLine("Found player-idle-timeout");
+                    string playeridletimeout;
+                    playeridletimeout = playeridletimeoutSetting.Remove(0, 20);
+                    Debug.WriteLine("player-idle-timeout value is " + playeridletimeout);
+                    decimal playeridletimeoutValue = Convert.ToDecimal(playeridletimeout);
+                    numericUpDown11.Value = playeridletimeoutValue;
+                }
+                else
+                {
+                    // player-idle-timeout line did not contain "player-idle-timeout"
+                    Debug.WriteLine("Failed to find player-idle-timeout");
+                    console.AppendText("\n[Error] Failed to find player-idle-timeout in server.properties");
                 }
             }
             catch(Exception ex)
