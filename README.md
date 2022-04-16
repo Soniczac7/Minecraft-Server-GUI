@@ -1,5 +1,5 @@
 # Minecraft Server GUI
-![GitHub issues](https://img.shields.io/github/issues/Soniczac7/Minecraft-Server-GUI) ![GitHub all releases](https://img.shields.io/github/downloads/Soniczac7/Minecraft-Server-GUI/total) [![license: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub issues](https://img.shields.io/github/issues/Soniczac7/Minecraft-Server-GUI) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Soniczac7/Minecraft-Server-GUI/.NET%20Core%20Desktop) ![GitHub all releases](https://img.shields.io/github/downloads/Soniczac7/Minecraft-Server-GUI/total) [![license: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Introduction
 Minecraft Server GUI is a useful application which automatically creates and hosts a Minecraft server for you.
 The only setup that you need to do is input your desired server settings and click run!
