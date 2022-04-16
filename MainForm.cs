@@ -349,6 +349,22 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine(serverProperties[12]);
                     console.AppendText("\n[Error op-permission-level in server.properties contains an invalid value");
                 }
+                // Process resource-pack-hash
+                string resourcepackhashSetting = serverProperties[13];
+                if (resourcepackhashSetting.Contains("resource-pack-hash"))
+                {
+                    Debug.WriteLine("Found resource-pack-hash");
+                    string resourcepackhash;
+                    resourcepackhash = resourcepackhashSetting.Remove(0, 19);
+                    Debug.WriteLine("resource-pack-hash value is " + resourcepackhash);
+                    textBox7.Text = resourcepackhash;
+                }
+                else
+                {
+                    // resource-pack-hash line did not contain "resource-pack-hash"
+                    Debug.WriteLine("Failed to find resource-pack-hash");
+                    console.AppendText("\n[Error] Failed to find resource-pack-hash in server.properties");
+                }
             }
             catch(Exception ex)
             {

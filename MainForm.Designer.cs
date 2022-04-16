@@ -543,7 +543,7 @@
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Location = new System.Drawing.Point(405, 411);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(284, 88);
+            this.groupBox3.Size = new System.Drawing.Size(336, 88);
             this.groupBox3.TabIndex = 39;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Resource Pack";
@@ -552,14 +552,14 @@
             // 
             this.textBox7.Location = new System.Drawing.Point(151, 53);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(127, 27);
+            this.textBox7.Size = new System.Drawing.Size(179, 27);
             this.textBox7.TabIndex = 49;
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(114, 20);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(164, 27);
+            this.textBox6.Size = new System.Drawing.Size(216, 27);
             this.textBox6.TabIndex = 48;
             // 
             // label29
