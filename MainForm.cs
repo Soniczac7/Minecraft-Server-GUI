@@ -367,7 +367,6 @@ namespace Minecraft_Server_GUI
                 }
                 // Proccess announce-player-achivements
                 string announceplayerachivementsSetting = serverProperties[14];
-                Debug.WriteLine(serverProperties[14]);
                 if (announceplayerachivementsSetting.Contains("announce-player-achievements"))
                 {
                     Debug.WriteLine("Found announce-player-achievements");
@@ -387,6 +386,34 @@ namespace Minecraft_Server_GUI
                 {
                     // announce-player-achivements is invalid
                     console.AppendText("\n[Error] announce-player-achivements in server.properties contains an invalid value");
+                }
+                // Proccess pvp
+                string pvpSetting = serverProperties[15];
+                if (pvpSetting.Contains("pvp"))
+                {
+                    Debug.WriteLine("Found pvp");
+                    string pvp;
+                    pvp = pvpSetting.Remove(0, 4);
+                    Debug.WriteLine("pvp value is " + pvp);
+                    if (pvp == "true")
+                    {
+                        comboBox5.SelectedIndex = 0;
+                    }
+                    else if (pvp == "false")
+                    {
+                        comboBox5.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // pvp is invalid
+                        console.AppendText("\n[Error] pvp in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // pvp line did not contain "pvp"
+                    Debug.WriteLine("Failed to find pvp");
+                    console.AppendText("\n[Error] Failed to find pvp in server.properties");
                 }
             }
             catch (Exception ex)
