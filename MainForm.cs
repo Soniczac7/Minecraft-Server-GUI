@@ -130,11 +130,11 @@ namespace Minecraft_Server_GUI
                     string forcegamemode;
                     forcegamemode = forcegamemodeSetting.Remove(0, 15);
                     Debug.WriteLine("force-gamemode value is " + forcegamemode);
-                    if(forcegamemode == "true")
+                    if (forcegamemode == "true")
                     {
                         comboBox17.SelectedIndex = 0;
                     }
-                    else if(forcegamemode == "false")
+                    else if (forcegamemode == "false")
                     {
                         comboBox17.SelectedIndex = 1;
                     }
@@ -194,11 +194,11 @@ namespace Minecraft_Server_GUI
                     {
                         numericUpDown10.Value = 1;
                     }
-                    else if(gamemode == "2")
+                    else if (gamemode == "2")
                     {
                         numericUpDown10.Value = 2;
                     }
-                    else if(gamemode == "3")
+                    else if (gamemode == "3")
                     {
                         numericUpDown10.Value = 3;
                     }
@@ -365,8 +365,31 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find resource-pack-hash");
                     console.AppendText("\n[Error] Failed to find resource-pack-hash in server.properties");
                 }
+                // Proccess announce-player-achivements
+                string announceplayerachivementsSetting = serverProperties[14];
+                Debug.WriteLine(serverProperties[14]);
+                if (announceplayerachivementsSetting.Contains("announce-player-achievements"))
+                {
+                    Debug.WriteLine("Found announce-player-achievements");
+                    string announceplayerachivements;
+                    announceplayerachivements = announceplayerachivementsSetting.Remove(0, 29);
+                    Debug.WriteLine("announce-player-achievements value is " + announceplayerachivements);
+                    if (announceplayerachivements == "true")
+                    {
+                        comboBox16.SelectedIndex = 0;
+                    }
+                    else if (announceplayerachivements == "false")
+                    {
+                        comboBox16.SelectedIndex = 1;
+                    }
+                }
+                else
+                {
+                    // announce-player-achivements is invalid
+                    console.AppendText("\n[Error] announce-player-achivements in server.properties contains an invalid value");
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 console.AppendText("\n[Error] " + ex.Message);
             }

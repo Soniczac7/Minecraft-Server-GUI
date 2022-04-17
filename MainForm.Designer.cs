@@ -225,6 +225,7 @@
             this.console.Dock = System.Windows.Forms.DockStyle.Fill;
             this.console.Location = new System.Drawing.Point(3, 3);
             this.console.Name = "console";
+            this.console.ReadOnly = true;
             this.console.Size = new System.Drawing.Size(762, 352);
             this.console.TabIndex = 0;
             this.console.Text = "";
@@ -381,9 +382,8 @@
             this.comboBox16.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox16.FormattingEnabled = true;
             this.comboBox16.Items.AddRange(new object[] {
-            "DEFAULT",
-            "FLAT",
-            "AMPLIFIED"});
+            "True",
+            "False"});
             this.comboBox16.Location = new System.Drawing.Point(175, 127);
             this.comboBox16.Name = "comboBox16";
             this.comboBox16.Size = new System.Drawing.Size(149, 28);
@@ -1310,11 +1310,11 @@
         private NumericUpDown numericUpDown10;
         private NumericUpDown numericUpDown9;
         private NumericUpDown numericUpDown8;
-        private ComboBox comboBox16;
         private ComboBox comboBox15;
         private ComboBox comboBox14;
         private NumericUpDown numericUpDown7;
         private ComboBox comboBox13;
         private ComboBox comboBox17;
+        private ComboBox comboBox16;
     }
 }
