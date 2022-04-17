@@ -79,7 +79,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";
-            this.ShowIcon = false;
             this.Text = "Settings";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
