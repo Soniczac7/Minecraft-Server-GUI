@@ -56,13 +56,13 @@ namespace Minecraft_Server_GUI
             InitializeComponent();
             if (Settings1.Default.licenseShown == false)
             {
-                // Show the license dialogue if the user has not seen the license dialogue yet
+                // Show the license dialog if the user has not seen the license dialog yet
                 license.ShowDialog();
             }
             MessageBox.Show("This application is very early in development.\nExpect missing functionality and bugs.\nIf you have any issues make sure to open an issue in the github at:\nhttps://github.com/Soniczac7/Minecraft-Server-GUI/issues", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
             {
-                // If the user has not navigated to a server before then show open server dialogue
+                // If the user has not navigated to a server before then show open server dialog
                 getServer.ShowDialog();
             }
             if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
@@ -112,7 +112,7 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find generator-settings");
                     console.AppendText("\n[Error] Failed to find generator-settings in server.properties");
                 }
-                // Proccess force-gamemode
+                // Process force-gamemode
                 string forcegamemodeSetting = serverProperties[4];
                 if (forcegamemodeSetting.Contains("force-gamemode"))
                 {
@@ -204,14 +204,14 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find gamemode");
                     console.AppendText("\n[Error] Failed to find gamemode in server.properties");
                 }
-                // Proccess broadcast-console-to-ops
+                // Process broadcast-console-to-ops
                 string consoletoopSetting = serverProperties[7];
                 if (consoletoopSetting.Contains("broadcast-console-to-ops"))
                 {
                     Debug.WriteLine("Found broadcast-console-to-ops");
                     string consoletoop;
                     consoletoop = consoletoopSetting.Remove(0, 25);
-                    Debug.WriteLine("force-gamemode value is " + consoletoop);
+                    Debug.WriteLine("broadcast-console-to-ops value is " + consoletoop);
                     if (consoletoop == "true")
                     {
                         comboBox14.SelectedIndex = 0;
@@ -232,7 +232,7 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find broadcast-console-to-ops");
                     console.AppendText("\n[Error] Failed to find broadcast-console-to-ops in server.properties");
                 }
-                // Proccess enable-query
+                // Process enable-query
                 string enablequerySetting = serverProperties[8];
                 if (enablequerySetting.Contains("enable-query"))
                 {
@@ -355,7 +355,7 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find resource-pack-hash");
                     console.AppendText("\n[Error] Failed to find resource-pack-hash in server.properties");
                 }
-                // Proccess announce-player-achivements
+                // Process announce-player-achievements
                 string announceplayerachivementsSetting = serverProperties[14];
                 if (announceplayerachivementsSetting.Contains("announce-player-achievements"))
                 {
@@ -374,10 +374,10 @@ namespace Minecraft_Server_GUI
                 }
                 else
                 {
-                    // announce-player-achivements is invalid
-                    console.AppendText("\n[Error] announce-player-achivements in server.properties contains an invalid value");
+                    // announce-player-achievements is invalid
+                    console.AppendText("\n[Error] announce-player-achievements in server.properties contains an invalid value");
                 }
-                // Proccess pvp
+                // Process pvp
                 string pvpSetting = serverProperties[15];
                 if (pvpSetting.Contains("pvp"))
                 {
@@ -405,7 +405,7 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find pvp");
                     console.AppendText("\n[Error] Failed to find pvp in server.properties");
                 }
-                // Proccess snooper-enabled
+                // Process snooper-enabled
                 string snooperenabledSetting = serverProperties[16];
                 if (snooperenabledSetting.Contains("snooper-enabled"))
                 {
