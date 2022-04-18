@@ -405,6 +405,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find pvp");
                     console.AppendText("\n[Error] Failed to find pvp in server.properties");
                 }
+                // Proccess snooper-enabled
+                string snooperenabledSetting = serverProperties[16];
+                if (snooperenabledSetting.Contains("snooper-enabled"))
+                {
+                    Debug.WriteLine("Found snooper-enabled");
+                    string snooperenabled;
+                    snooperenabled = snooperenabledSetting.Remove(0, 16);
+                    Debug.WriteLine("snooper-enabled value is " + snooperenabled);
+                    if (snooperenabled == "true")
+                    {
+                        comboBox13.SelectedIndex = 0;
+                    }
+                    else if (snooperenabled == "false")
+                    {
+                        comboBox13.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // snooper-enabled is invalid
+                        console.AppendText("\n[Error] snooper-enabled in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // snooper-enabled line did not contain "snooper-enabled"
+                    Debug.WriteLine("Failed to find snooper-enabled");
+                    console.AppendText("\n[Error] Failed to find snooper-enabled in server.properties");
+                }
             }
             catch (Exception ex)
             {
