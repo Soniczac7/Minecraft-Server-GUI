@@ -868,6 +868,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find white-list");
                     console.AppendText("\n[Error] Failed to find white-list in server.properties");
                 }
+                // Process generate-structures
+                string generatestructuresSetting = serverProperties[33];
+                if (generatestructuresSetting.Contains("generate-structures"))
+                {
+                    Debug.WriteLine("Found generate-structures");
+                    string generatestructures;
+                    generatestructures = generatestructuresSetting.Remove(0, 20);
+                    Debug.WriteLine("generate-structures value is " + generatestructures);
+                    if (generatestructures == "true")
+                    {
+                        comboBox2.SelectedIndex = 0;
+                    }
+                    else if (generatestructures == "false")
+                    {
+                        comboBox2.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // generate-structures is invalid
+                        console.AppendText("\n[Error] generate-structures in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // generate-structures line did not contain "generate-structures"
+                    Debug.WriteLine("Failed to find generate-structures");
+                    console.AppendText("\n[Error] Failed to find generate-structures in server.properties");
+                }
             }
             catch (Exception ex)
             {
