@@ -133,7 +133,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine(ex.StackTrace);
                     return;
                 }
-                // ProcessStartInfo
+                DialogResult result = MessageBox.Show("Would you like to start your server with default settings?", "Start Server?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    throw new NotImplementedException();
+                }
             }
             if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
             {
