@@ -957,6 +957,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find level-seed");
                     console.AppendText("\n[Error] Failed to find level-seed in server.properties");
                 }
+                // Process enable-rcon
+                string rconSetting = serverProperties[37];
+                if (rconSetting.Contains("enable-rcon"))
+                {
+                    Debug.WriteLine("Found enable-rcon");
+                    string rcon;
+                    rcon = rconSetting.Remove(0, 12);
+                    Debug.WriteLine("enable-rcon value is " + rcon);
+                    if (rcon == "true")
+                    {
+                        comboBox12.SelectedIndex = 0;
+                    }
+                    else if (rcon == "false")
+                    {
+                        comboBox12.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // enable-rcon is invalid
+                        console.AppendText("\n[Error] enable-rcon in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // enable-rcon line did not contain "enable-rcon"
+                    Debug.WriteLine("Failed to find enable-rcon");
+                    console.AppendText("\n[Error] Failed to find enable-rcon in server.properties");
+                }
             }
             catch (Exception ex)
             {
