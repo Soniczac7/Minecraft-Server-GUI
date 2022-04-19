@@ -924,6 +924,23 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find online-mode");
                     console.AppendText("\n[Error] Failed to find online-mode in server.properties");
                 }
+                // Process max-build-height
+                string buildheightSetting = serverProperties[35];
+                if (buildheightSetting.Contains("max-build-height"))
+                {
+                    Debug.WriteLine("Found max-build-height");
+                    string buildheight;
+                    buildheight = buildheightSetting.Remove(0, 17);
+                    Debug.WriteLine("max-build-height value is " + buildheight);
+                    decimal buildheightValue = Convert.ToDecimal(buildheight);
+                    numericUpDown2.Value = buildheightValue;
+                }
+                else
+                {
+                    // max-build-height line did not contain "max-build-height"
+                    Debug.WriteLine("Failed to find max-build-height");
+                    console.AppendText("\n[Error] Failed to find max-build-height in server.properties");
+                }
             }
             catch (Exception ex)
             {
