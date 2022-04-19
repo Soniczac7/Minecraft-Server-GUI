@@ -65,7 +65,6 @@ namespace Minecraft_Server_GUI
                 progressBar1.Value = e.ProgressPercentage;
                 if (e.ProgressPercentage == 100)
                 {
-                    MessageBox.Show("Download Complete!", "Download", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }

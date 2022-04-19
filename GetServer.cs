@@ -38,6 +38,7 @@ namespace Minecraft_Server_GUI
                 if (result == DialogResult.OK)
                 {
                     location = folderBrowserDialog1.SelectedPath + @"\server.jar";
+                    Settings1.Default.serverPath = folderBrowserDialog1.SelectedPath + @"\";
                 }
                 else
                 {

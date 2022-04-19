@@ -69,7 +69,71 @@ namespace Minecraft_Server_GUI
             }
             if (newServer == true)
             {
-                throw new NotImplementedException();
+                string[] eula = new string[]{
+                    "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).",
+                    "#Wed Apr 13 18:25:21 BST 2022",
+                    "eula = true"
+                };
+                string[] defaultProperties = new string[]
+                {
+                    "#Minecraft server properties",
+                    "#Tue Apr 19 14:56:11 BST 2022",
+                    "spawn-protection=0",
+                    "generator-settings=",
+                    "force-gamemode=false",
+                    "allow-nether=true",
+                    "gamemode=0",
+                    "broadcast-console-to-ops=true",
+                    "enable-query=false",
+                    "player-idle-timeout=0",
+                    "difficulty=1",
+                    "spawn-monsters=true",
+                    "op-permission-level=4",
+                    "resource-pack-hash=",
+                    "announce-player-achievements=true",
+                    "pvp=true",
+                    "snooper-enabled=true",
+                    "level-type=DEFAULT",
+                    "hardcore=false",
+                    "enable-command-block=false",
+                    "max-players=16",
+                    "network-compression-threshold=256",
+                    "max-world-size=29999984",
+                    "server-port=25565",
+                    "debug=false",
+                    "server-ip=",
+                    "spawn-npcs=true",
+                    "allow-flight=false",
+                    "level-name=world",
+                    "view-distance=10",
+                    "resource-pack=",
+                    "spawn-animals=true",
+                    "white-list=false",
+                    "generate-structures=true",
+                    "online-mode=true",
+                    "max-build-height=256",
+                    "level-seed=",
+                    "enable-rcon=false",
+                    "motd=A Minecraft Server!"
+
+                };
+                try
+                {
+                    FileStream eulaFile = File.Create(Settings1.Default.serverPath + "eula.txt");
+                    eulaFile.Close();
+                    FileStream propertiesFile = File.Create(Settings1.Default.serverPath + "server.properties");
+                    propertiesFile.Close();
+                    File.WriteAllLines(Settings1.Default.serverPath + "eula.txt", eula);
+                    File.WriteAllLines(Settings1.Default.serverPath + "server.properties", defaultProperties);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Debug.WriteLine(ex.Message);
+                    Debug.WriteLine(ex.StackTrace);
+                    return;
+                }
+                // ProcessStartInfo
             }
             if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
             {
