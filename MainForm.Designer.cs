@@ -668,10 +668,10 @@
             this.comboBox11.Items.AddRange(new object[] {
             "True",
             "False"});
-            this.comboBox11.Location = new System.Drawing.Point(58, 214);
+            this.comboBox11.Location = new System.Drawing.Point(53, 214);
             this.comboBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(284, 23);
+            this.comboBox11.Size = new System.Drawing.Size(289, 23);
             this.comboBox11.TabIndex = 53;
             // 
             // comboBox10
@@ -806,7 +806,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(5, 214);
+            this.label23.Location = new System.Drawing.Point(5, 217);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(42, 15);
             this.label23.TabIndex = 22;

@@ -663,6 +663,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find server-port");
                     console.AppendText("\n[Error] Failed to find server-port in server.properties");
                 }
+                // Process debug
+                string debugSetting = serverProperties[24];
+                if (debugSetting.Contains("debug"))
+                {
+                    Debug.WriteLine("Found debug");
+                    string debug;
+                    debug = debugSetting.Remove(0, 6);
+                    Debug.WriteLine("debug value is " + debug);
+                    if (debug == "true")
+                    {
+                        comboBox11.SelectedIndex = 0;
+                    }
+                    else if (debug == "false")
+                    {
+                        comboBox11.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // debug is invalid
+                        console.AppendText("\n[Error] debug in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // debug line did not contain "debug"
+                    Debug.WriteLine("Failed to find debug");
+                    console.AppendText("\n[Error] Failed to find debug in server.properties");
+                }
             }
             catch (Exception ex)
             {
