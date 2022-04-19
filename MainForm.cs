@@ -51,6 +51,8 @@ namespace Minecraft_Server_GUI
         */
         #endregion
 
+        public static bool newServer = false;
+
         public MainForm()
         {
             InitializeComponent();
@@ -64,6 +66,10 @@ namespace Minecraft_Server_GUI
             {
                 // If the user has not navigated to a server before then show open server dialog
                 getServer.ShowDialog();
+            }
+            if (newServer == true)
+            {
+                throw new NotImplementedException();
             }
             if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
             {
