@@ -763,6 +763,22 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find allow-flight");
                     console.AppendText("\n[Error] Failed to find allow-flight in server.properties");
                 }
+                // Process level-name
+                string levelnameSetting = serverProperties[28];
+                if (levelnameSetting.Contains("level-name"))
+                {
+                    Debug.WriteLine("Found level-name");
+                    string levelname;
+                    levelname = levelnameSetting.Remove(0, 11);
+                    Debug.WriteLine("level-name value is " + levelname);
+                    textBox1.Text = levelname;
+                }
+                else
+                {
+                    // level-name line did not contain "level-name"
+                    Debug.WriteLine("Failed to find level-name");
+                    console.AppendText("\n[Error] Failed to find level-name in server.properties");
+                }
             }
             catch (Exception ex)
             {

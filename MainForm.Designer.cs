@@ -1112,7 +1112,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(250, 23);
             this.textBox1.TabIndex = 35;
-            this.textBox1.Text = "world";
             // 
             // label2
             // 
