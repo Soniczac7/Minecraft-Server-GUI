@@ -507,7 +507,7 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find snooper-enabled");
                     console.AppendText("\n[Error] Failed to find snooper-enabled in server.properties");
                 }
-                // Process leveltype
+                // Process level-type
                 string leveltypeSetting = serverProperties[17];
                 if (leveltypeSetting.Contains("level-type"))
                 {
@@ -539,7 +539,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find level-type");
                     console.AppendText("\n[Error] Failed to find level-type in server.properties");
                 }
-
+                // Process hardcore
+                string hardcoreSetting = serverProperties[18];
+                if (hardcoreSetting.Contains("hardcore"))
+                {
+                    Debug.WriteLine("Found hardcore");
+                    string hardcore;
+                    hardcore = hardcoreSetting.Remove(0, 9);
+                    Debug.WriteLine("hardcore value is " + hardcore);
+                    if (hardcore == "true")
+                    {
+                        comboBox7.SelectedIndex = 0;
+                    }
+                    else if (hardcore == "false")
+                    {
+                        comboBox7.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // hardcore is invalid
+                        console.AppendText("\n[Error] hardcore in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // snooper-enabled line did not contain "snooper-enabled"
+                    Debug.WriteLine("Failed to find snooper-enabled");
+                    console.AppendText("\n[Error] Failed to find snooper-enabled in server.properties");
+                }
             }
             catch (Exception ex)
             {
