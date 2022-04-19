@@ -329,9 +329,8 @@
             this.comboBox18.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox18.FormattingEnabled = true;
             this.comboBox18.Items.AddRange(new object[] {
-            "DEFAULT",
-            "FLAT",
-            "AMPLIFIED"});
+            "True",
+            "False"});
             this.comboBox18.Location = new System.Drawing.Point(87, 220);
             this.comboBox18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox18.Name = "comboBox18";

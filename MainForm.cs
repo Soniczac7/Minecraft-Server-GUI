@@ -735,6 +735,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find spawn-npcs");
                     console.AppendText("\n[Error] Failed to find spawn-npcs in server.properties");
                 }
+                // Process allow-flight
+                string allowflightSetting = serverProperties[27];
+                if (allowflightSetting.Contains("allow-flight"))
+                {
+                    Debug.WriteLine("Found allow-flight");
+                    string allowflight;
+                    allowflight = allowflightSetting.Remove(0, 13);
+                    Debug.WriteLine("allow-flight value is " + allowflight);
+                    if (allowflight == "true")
+                    {
+                        comboBox18.SelectedIndex = 0;
+                    }
+                    else if (allowflight == "false")
+                    {
+                        comboBox18.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // allow-flight is invalid
+                        console.AppendText("\n[Error] allow-flight in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // allow-flight line did not contain "allow-flight"
+                    Debug.WriteLine("Failed to find allow-flight");
+                    console.AppendText("\n[Error] Failed to find allow-flight in server.properties");
+                }
             }
             catch (Exception ex)
             {
