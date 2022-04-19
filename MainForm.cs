@@ -707,6 +707,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find server-ip");
                     console.AppendText("\n[Error] Failed to find server-ip in server.properties");
                 }
+                // Process spawn-npcs
+                string npcsSetting = serverProperties[26];
+                if (npcsSetting.Contains("spawn-npcs"))
+                {
+                    Debug.WriteLine("Found spawn-npcs");
+                    string npcs;
+                    npcs = npcsSetting.Remove(0, 11);
+                    Debug.WriteLine("spawn-npcs value is " + npcs);
+                    if (npcs == "true")
+                    {
+                        comboBox6.SelectedIndex = 0;
+                    }
+                    else if (npcs == "false")
+                    {
+                        comboBox6.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // spawn-npcs is invalid
+                        console.AppendText("\n[Error] spawn-npcs in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // spawn-npcs line did not contain "spawn-npcs"
+                    Debug.WriteLine("Failed to find spawn-npcs");
+                    console.AppendText("\n[Error] Failed to find spawn-npcs in server.properties");
+                }
             }
             catch (Exception ex)
             {
