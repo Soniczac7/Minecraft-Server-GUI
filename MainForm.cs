@@ -567,6 +567,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find hardcore");
                     console.AppendText("\n[Error] Failed to find hardcore in server.properties");
                 }
+                // Process enable-command-block
+                string commandblocksSetting = serverProperties[19];
+                if (commandblocksSetting.Contains("enable-command-block"))
+                {
+                    Debug.WriteLine("Found enable-command-block");
+                    string commandblocks;
+                    commandblocks = commandblocksSetting.Remove(0, 21);
+                    Debug.WriteLine("enable-command-block value is " + commandblocks);
+                    if (commandblocks == "true")
+                    {
+                        comboBox15.SelectedIndex = 0;
+                    }
+                    else if (commandblocks == "false")
+                    {
+                        comboBox15.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // enable-command-block is invalid
+                        console.AppendText("\n[Error] enable-command-block in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // enable-command-block line did not contain "enable-command-block"
+                    Debug.WriteLine("Failed to find enable-command-block");
+                    console.AppendText("\n[Error] Failed to find enable-command-block in server.properties");
+                }
             }
             catch (Exception ex)
             {

@@ -246,7 +246,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(671, 265);
+            this.tabPage2.Size = new System.Drawing.Size(692, 261);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Server Settings";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -410,9 +410,8 @@
             this.comboBox15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox15.FormattingEnabled = true;
             this.comboBox15.Items.AddRange(new object[] {
-            "DEFAULT",
-            "FLAT",
-            "AMPLIFIED"});
+            "True",
+            "False"});
             this.comboBox15.Location = new System.Drawing.Point(162, 70);
             this.comboBox15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox15.Name = "comboBox15";
