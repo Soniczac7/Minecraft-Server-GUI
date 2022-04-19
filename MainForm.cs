@@ -507,6 +507,39 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find snooper-enabled");
                     console.AppendText("\n[Error] Failed to find snooper-enabled in server.properties");
                 }
+                // Process leveltype
+                string leveltypeSetting = serverProperties[17];
+                if (leveltypeSetting.Contains("level-type"))
+                {
+                    Debug.WriteLine("Found leveltype");
+                    string leveltype;
+                    leveltype = leveltypeSetting.Remove(0, 11);
+                    Debug.WriteLine("level-type value is " + leveltype);
+                    if (leveltype == "DEFAULT")
+                    {
+                        comboBox1.SelectedIndex = 0;
+                    }
+                    else if (leveltype == "FLAT")
+                    {
+                        comboBox1.SelectedIndex = 1;
+                    }
+                    else if (leveltype == "AMPLIFIED")
+                    {
+                        comboBox1.SelectedIndex = 2;
+                    }
+                    else
+                    {
+                        // level-type is invalid
+                        console.AppendText("\n[Error] level-type in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // level-type line did not contain "level-type"
+                    Debug.WriteLine("Failed to find level-type");
+                    console.AppendText("\n[Error] Failed to find level-type in server.properties");
+                }
+
             }
             catch (Exception ex)
             {
