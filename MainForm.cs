@@ -779,6 +779,23 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find level-name");
                     console.AppendText("\n[Error] Failed to find level-name in server.properties");
                 }
+                // Process view-distance
+                string viewSetting = serverProperties[29];
+                if (viewSetting.Contains("view-distance"))
+                {
+                    Debug.WriteLine("Found view-distance");
+                    string view;
+                    view = viewSetting.Remove(0, 14);
+                    Debug.WriteLine("view-distance value is " + view);
+                    decimal viewValue = Convert.ToDecimal(view);
+                    numericUpDown8.Value = viewValue;
+                }
+                else
+                {
+                    // view-distance line did not contain "view-distance"
+                    Debug.WriteLine("Failed to find view-distance");
+                    console.AppendText("\n[Error] Failed to find view-distance in server.properties");
+                }
             }
             catch (Exception ex)
             {

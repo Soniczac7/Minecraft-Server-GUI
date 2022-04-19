@@ -386,7 +386,7 @@
             this.numericUpDown8.Size = new System.Drawing.Size(184, 23);
             this.numericUpDown8.TabIndex = 48;
             this.numericUpDown8.Value = new decimal(new int[] {
-            10,
+            1,
             0,
             0,
             0});
