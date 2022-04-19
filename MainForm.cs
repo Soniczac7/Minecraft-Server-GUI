@@ -595,6 +595,23 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find enable-command-block");
                     console.AppendText("\n[Error] Failed to find enable-command-block in server.properties");
                 }
+                // Process max-players
+                string maxplayersSetting = serverProperties[20];
+                if (maxplayersSetting.Contains("max-players"))
+                {
+                    Debug.WriteLine("Found max-players");
+                    string maxplayers;
+                    maxplayers = maxplayersSetting.Remove(0, 12);
+                    Debug.WriteLine("max-players value is " + maxplayers);
+                    decimal maxplayersValue = Convert.ToDecimal(maxplayers);
+                    numericUpDown5.Value = maxplayersValue;
+                }
+                else
+                {
+                    // max-players line did not contain "max-players"
+                    Debug.WriteLine("Failed to find max-players");
+                    console.AppendText("\n[Error] Failed to find max-players in server.properties");
+                }
             }
             catch (Exception ex)
             {
