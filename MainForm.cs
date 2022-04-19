@@ -896,6 +896,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find generate-structures");
                     console.AppendText("\n[Error] Failed to find generate-structures in server.properties");
                 }
+                // Process online-mode
+                string onlineSetting = serverProperties[34];
+                if (onlineSetting.Contains("online-mode"))
+                {
+                    Debug.WriteLine("Found online-mode");
+                    string online;
+                    online = onlineSetting.Remove(0, 12);
+                    Debug.WriteLine("online-mode value is " + online);
+                    if (online == "true")
+                    {
+                        comboBox8.SelectedIndex = 0;
+                    }
+                    else if (online == "false")
+                    {
+                        comboBox8.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // online-mode is invalid
+                        console.AppendText("\n[Error] online-mode in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // online-mode line did not contain "online-mode"
+                    Debug.WriteLine("Failed to find online-mode");
+                    console.AppendText("\n[Error] Failed to find online-mode in server.properties");
+                }
             }
             catch (Exception ex)
             {
