@@ -315,9 +315,8 @@
             this.comboBox19.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox19.FormattingEnabled = true;
             this.comboBox19.Items.AddRange(new object[] {
-            "DEFAULT",
-            "FLAT",
-            "AMPLIFIED"});
+            "True",
+            "False"});
             this.comboBox19.Location = new System.Drawing.Point(107, 244);
             this.comboBox19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox19.Name = "comboBox19";

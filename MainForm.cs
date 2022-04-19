@@ -812,6 +812,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find resource-pack");
                     console.AppendText("\n[Error] Failed to find resource-pack in server.properties");
                 }
+                // Process spawn-animals
+                string spawnanimalsSetting = serverProperties[31];
+                if (spawnanimalsSetting.Contains("spawn-animals"))
+                {
+                    Debug.WriteLine("Found spawn-animals");
+                    string spawnanimals;
+                    spawnanimals = spawnanimalsSetting.Remove(0, 14);
+                    Debug.WriteLine("spawn-animals value is " + spawnanimals);
+                    if (spawnanimals == "true")
+                    {
+                        comboBox19.SelectedIndex = 0;
+                    }
+                    else if (spawnanimals == "false")
+                    {
+                        comboBox19.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // spawn-animals is invalid
+                        console.AppendText("\n[Error] spawn-animals in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // spawn-animals line did not contain "spawn-animals"
+                    Debug.WriteLine("Failed to find spawn-animals");
+                    console.AppendText("\n[Error] Failed to find spawn-animals in server.properties");
+                }
             }
             catch (Exception ex)
             {
