@@ -612,6 +612,23 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find max-players");
                     console.AppendText("\n[Error] Failed to find max-players in server.properties");
                 }
+                // Process network-compression-threshold
+                string networkcompressionthresholdSetting = serverProperties[21];
+                if (networkcompressionthresholdSetting.Contains("network-compression-threshold"))
+                {
+                    Debug.WriteLine("Found network-compression-threshold");
+                    string networkcompressionthreshold;
+                    networkcompressionthreshold = networkcompressionthresholdSetting.Remove(0, 30);
+                    Debug.WriteLine("network-compression-threshold value is " + networkcompressionthreshold);
+                    decimal networkcompressionthresholdValue = Convert.ToDecimal(networkcompressionthreshold);
+                    numericUpDown5.Value = networkcompressionthresholdValue;
+                }
+                else
+                {
+                    // network-compression-threshold line did not contain "network-compression-threshold"
+                    Debug.WriteLine("Failed to find network-compression-threshold");
+                    console.AppendText("\n[Error] Failed to find network-compression-threshold in server.properties");
+                }
             }
             catch (Exception ex)
             {
