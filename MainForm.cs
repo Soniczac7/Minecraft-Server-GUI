@@ -646,6 +646,23 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find max-world-size");
                     console.AppendText("\n[Error] Failed to find max-world-size in server.properties");
                 }
+                // Process server-port
+                string portSetting = serverProperties[23];
+                if (portSetting.Contains("server-port"))
+                {
+                    Debug.WriteLine("Found server-port");
+                    string port;
+                    port = portSetting.Remove(0, 12);
+                    Debug.WriteLine("server-port value is " + port);
+                    decimal portValue = Convert.ToDecimal(port);
+                    numericUpDown4.Value = portValue;
+                }
+                else
+                {
+                    // server-port line did not contain "server-port"
+                    Debug.WriteLine("Failed to find server-port");
+                    console.AppendText("\n[Error] Failed to find server-port in server.properties");
+                }
             }
             catch (Exception ex)
             {
