@@ -941,6 +941,22 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find max-build-height");
                     console.AppendText("\n[Error] Failed to find max-build-height in server.properties");
                 }
+                // Process level-seed
+                string seedSetting = serverProperties[36];
+                if (seedSetting.Contains("level-seed"))
+                {
+                    Debug.WriteLine("Found level-seed");
+                    string seed;
+                    seed = seedSetting.Remove(0, 11);
+                    Debug.WriteLine("level-seed value is " + seed);
+                    textBox2.Text = seed;
+                }
+                else
+                {
+                    // level-seed line did not contain "level-seed"
+                    Debug.WriteLine("Failed to find level-seed");
+                    console.AppendText("\n[Error] Failed to find level-seed in server.properties");
+                }
             }
             catch (Exception ex)
             {
