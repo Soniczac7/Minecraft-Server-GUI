@@ -563,9 +563,9 @@ namespace Minecraft_Server_GUI
                 }
                 else
                 {
-                    // snooper-enabled line did not contain "snooper-enabled"
-                    Debug.WriteLine("Failed to find snooper-enabled");
-                    console.AppendText("\n[Error] Failed to find snooper-enabled in server.properties");
+                    // hardcore line did not contain "hardcore"
+                    Debug.WriteLine("Failed to find hardcore");
+                    console.AppendText("\n[Error] Failed to find hardcore in server.properties");
                 }
             }
             catch (Exception ex)
