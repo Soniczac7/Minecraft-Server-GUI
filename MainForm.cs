@@ -985,6 +985,22 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find enable-rcon");
                     console.AppendText("\n[Error] Failed to find enable-rcon in server.properties");
                 }
+                // Process motd
+                string motdSetting = serverProperties[38];
+                if (motdSetting.Contains("motd"))
+                {
+                    Debug.WriteLine("Found motd");
+                    string motd;
+                    motd = motdSetting.Remove(0, 5);
+                    Debug.WriteLine("motd value is " + motd);
+                    textBox5.Text = motd;
+                }
+                else
+                {
+                    // motd line did not contain "motd"
+                    Debug.WriteLine("Failed to find motd");
+                    console.AppendText("\n[Error] Failed to find motd in server.properties");
+                }
             }
             catch (Exception ex)
             {
