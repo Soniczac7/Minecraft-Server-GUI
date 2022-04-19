@@ -691,6 +691,22 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find debug");
                     console.AppendText("\n[Error] Failed to find debug in server.properties");
                 }
+                // Process server-ip
+                string ipSetting = serverProperties[25];
+                if (ipSetting.Contains("server-ip"))
+                {
+                    Debug.WriteLine("Found server-ip");
+                    string ip;
+                    ip = ipSetting.Remove(0, 10);
+                    Debug.WriteLine("server-ip value is " + ip);
+                    textBox4.Text = ip;
+                }
+                else
+                {
+                    // server-ip line did not contain "server-ip"
+                    Debug.WriteLine("Failed to find server-ip");
+                    console.AppendText("\n[Error] Failed to find server-ip in server.properties");
+                }
             }
             catch (Exception ex)
             {
