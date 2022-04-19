@@ -733,7 +733,7 @@
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(206, 113);
+            this.numericUpDown6.Location = new System.Drawing.Point(191, 113);
             this.numericUpDown6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown6.Maximum = new decimal(new int[] {
             -1,
@@ -746,7 +746,7 @@
             0,
             0});
             this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(135, 23);
+            this.numericUpDown6.Size = new System.Drawing.Size(150, 23);
             this.numericUpDown6.TabIndex = 50;
             this.numericUpDown6.Value = new decimal(new int[] {
             256,

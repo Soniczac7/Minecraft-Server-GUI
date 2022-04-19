@@ -621,13 +621,30 @@ namespace Minecraft_Server_GUI
                     networkcompressionthreshold = networkcompressionthresholdSetting.Remove(0, 30);
                     Debug.WriteLine("network-compression-threshold value is " + networkcompressionthreshold);
                     decimal networkcompressionthresholdValue = Convert.ToDecimal(networkcompressionthreshold);
-                    numericUpDown5.Value = networkcompressionthresholdValue;
+                    numericUpDown6.Value = networkcompressionthresholdValue;
                 }
                 else
                 {
                     // network-compression-threshold line did not contain "network-compression-threshold"
                     Debug.WriteLine("Failed to find network-compression-threshold");
                     console.AppendText("\n[Error] Failed to find network-compression-threshold in server.properties");
+                }
+                // Process max-world-size
+                string maxworldsizeSetting = serverProperties[22];
+                if (maxworldsizeSetting.Contains("max-world-size"))
+                {
+                    Debug.WriteLine("Found max-world-size");
+                    string maxworldsize;
+                    maxworldsize = maxworldsizeSetting.Remove(0, 15);
+                    Debug.WriteLine("max-world-size value is " + maxworldsize);
+                    decimal maxworldsizeValue = Convert.ToDecimal(maxworldsize);
+                    numericUpDown1.Value = maxworldsizeValue;
+                }
+                else
+                {
+                    // max-world-size line did not contain "max-world-size"
+                    Debug.WriteLine("Failed to find max-world-size");
+                    console.AppendText("\n[Error] Failed to find max-world-size in server.properties");
                 }
             }
             catch (Exception ex)
