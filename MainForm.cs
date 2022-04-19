@@ -796,6 +796,22 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find view-distance");
                     console.AppendText("\n[Error] Failed to find view-distance in server.properties");
                 }
+                // Process resource-pack
+                string resourceSetting = serverProperties[30];
+                if (resourceSetting.Contains("resource-pack"))
+                {
+                    Debug.WriteLine("Found resource-pack");
+                    string resource;
+                    resource = resourceSetting.Remove(0, 14);
+                    Debug.WriteLine("resource-pack value is " + resource);
+                    textBox6.Text = resource;
+                }
+                else
+                {
+                    // resource-pack line did not contain "resource-pack"
+                    Debug.WriteLine("Failed to find resource-pack");
+                    console.AppendText("\n[Error] Failed to find resource-pack in server.properties");
+                }
             }
             catch (Exception ex)
             {
