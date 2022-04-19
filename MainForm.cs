@@ -840,6 +840,34 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find spawn-animals");
                     console.AppendText("\n[Error] Failed to find spawn-animals in server.properties");
                 }
+                // Process white-list
+                string whitelistSetting = serverProperties[32];
+                if (whitelistSetting.Contains("white-list"))
+                {
+                    Debug.WriteLine("Found white-list");
+                    string whitelist;
+                    whitelist = whitelistSetting.Remove(0, 11);
+                    Debug.WriteLine("white-list value is " + whitelist);
+                    if (whitelist == "true")
+                    {
+                        comboBox9.SelectedIndex = 0;
+                    }
+                    else if (whitelist == "false")
+                    {
+                        comboBox9.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        // white-list is invalid
+                        console.AppendText("\n[Error] white-list in server.properties contains an invalid value");
+                    }
+                }
+                else
+                {
+                    // white-list line did not contain "white-list"
+                    Debug.WriteLine("Failed to find white-list");
+                    console.AppendText("\n[Error] Failed to find white-list in server.properties");
+                }
             }
             catch (Exception ex)
             {
