@@ -91,6 +91,19 @@ namespace Minecraft_Server_GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @echo off
+        ///echo Starting server...
+        ///java -Xmx1G -jar server.jar
+        ///echo Server has stopped!
+        ///exit.
+        /// </summary>
+        internal static string startServer {
+            get {
+                return ResourceManager.GetString("startServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap stop {

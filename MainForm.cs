@@ -9,7 +9,10 @@ namespace Minecraft_Server_GUI
         GetServer getServer = new GetServer();
         #endregion
 
+        #region Other Variable Definitions
         public static bool newServer = false;
+        public static bool startServerOnStart = false;
+        #endregion
 
         public MainForm()
         {
@@ -94,7 +97,7 @@ namespace Minecraft_Server_GUI
                 DialogResult result = MessageBox.Show("Would you like to start your server with default settings?", "Start Server?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    throw new NotImplementedException();
+                    startServerOnStart = true;
                 }
             }
             if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
@@ -971,6 +974,60 @@ namespace Minecraft_Server_GUI
             // Show the settings form
             Settings settings = new Settings();
             settings.Show();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            // Start server
+            StartServer();
+        }
+
+        void StartServer()
+        {
+            console.AppendText("\nStarting server...");
+            toolStripButton1.Enabled = true;
+            toolStripButton2.Enabled = false;
+            toolStripButton3.Enabled = true;
+            // Create start server script
+            string[] line = new string[] { Convert.ToString(Properties.Resources.startServer) };
+            File.WriteAllLines(Settings1.Default.serverPath + "start.bat", line);
+            // Set up server process
+            ProcessStartInfo serverProcessInfo = new ProcessStartInfo();
+            Process serverProcess = new Process();
+            serverProcessInfo.FileName = Settings1.Default.serverPath + "start.bat";
+            serverProcessInfo.CreateNoWindow = true;
+            serverProcessInfo.UseShellExecute = false;
+            serverProcessInfo.RedirectStandardOutput = true;
+            serverProcessInfo.RedirectStandardError = true;
+            serverProcessInfo.RedirectStandardInput = true;
+            serverProcessInfo.ErrorDialog = true;
+            serverProcess.StartInfo = serverProcessInfo;
+            serverProcess.OutputDataReceived += outputDataRecieved;
+            serverProcess.ErrorDataReceived += outputDataRecieved;
+            serverProcessInfo.WorkingDirectory = Settings1.Default.serverPath;
+            // Start server and begin reading output
+            try
+            {
+                serverProcess.Start();
+                serverProcess.WaitForExit();
+                serverProcess.BeginOutputReadLine();
+                serverProcess.BeginErrorReadLine();
+            }
+            catch (Exception ex)
+            {
+                console.AppendText("\n" + ex.Message + Environment.NewLine + ex.StackTrace);
+            }
+            toolStripButton1.Enabled = false;
+            toolStripButton2.Enabled = true;
+            toolStripButton3.Enabled = false;
+        }
+
+        void outputDataRecieved(object sender, DataReceivedEventArgs args)
+        {
+            Action writeToConsole = () => console.AppendText("\n" + args.Data);
+            this.Invoke(writeToConsole);
+            Action scrollConsole = () => console.ScrollToCaret();
+            this.Invoke(scrollConsole);
         }
     }
 }

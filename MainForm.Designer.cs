@@ -192,6 +192,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton2.Text = "Start Server";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // settingsButton
             // 
