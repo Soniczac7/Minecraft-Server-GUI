@@ -1079,5 +1079,20 @@ namespace Minecraft_Server_GUI
                 inputWriter.WriteLine(inputText);
             }
         }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            // Stop server
+            toolStripStatusLabel1.Text = "Stopping Server...";
+            string inputText;
+            int numLines = 0;
+            console.AppendText("\n > stop");
+            inputText = "stop";
+            if (inputText.Length > 0)
+            {
+                numLines++;
+                inputWriter.WriteLine(inputText);
+            }
+        }
     }
 }

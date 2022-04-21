@@ -216,6 +216,7 @@
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(24, 24);
             this.stopButton.Text = "Stop Server";
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
             // commandButton
             // 
