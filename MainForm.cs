@@ -10,7 +10,8 @@ namespace Minecraft_Server_GUI
         GetServer getServer = new GetServer();
         #endregion
 
-        #region Other Variable Definitions
+        #region Other Definitions
+        StreamWriter inputWriter;
         public static bool newServer = false;
         public static bool startServerOnStart = false;
         #endregion
@@ -1025,6 +1026,8 @@ namespace Minecraft_Server_GUI
             try
             {
                 serverProcess.Start();
+                Action defineInputWriter = () => inputWriter = serverProcess.StandardInput;
+                this.Invoke(defineInputWriter);
                 serverProcess.BeginOutputReadLine();
                 serverProcess.BeginErrorReadLine();
                 serverProcess.WaitForExit();
@@ -1033,11 +1036,13 @@ namespace Minecraft_Server_GUI
             {
                 console.AppendText("\n" + ex.Message + Environment.NewLine + ex.StackTrace);
             }
+            Action a = () => inputWriter.Close();
             Action a1 = () => stopButton.Enabled = false;
             Action a2 = () => startButton.Enabled = true;
             Action a3 = () => commandButton.Enabled = false;
             Action a4 = () => toolStripStatusLabel1.Text = "Server Stopped!";
             Action a5 = () => toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
+            this.Invoke(a);
             this.Invoke(a1);
             this.Invoke(a2);
             this.Invoke(a3);
@@ -1057,6 +1062,22 @@ namespace Minecraft_Server_GUI
         {
             // About
             about.ShowDialog();
+        }
+
+        private void commandButton_Click(object sender, EventArgs e)
+        {
+            // Input command
+            CommandInput commandInput = new CommandInput();
+            commandInput.ShowDialog();
+            string inputText;
+            int numLines = 0;
+            console.AppendText("\n > " + CommandInput.input.textBox1.Text);
+            inputText = CommandInput.input.textBox1.Text;
+            if (inputText.Length > 0)
+            {
+                numLines++;
+                inputWriter.WriteLine(inputText);
+            }
         }
     }
 }

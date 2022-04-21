@@ -226,6 +226,7 @@
             this.commandButton.Name = "commandButton";
             this.commandButton.Size = new System.Drawing.Size(24, 24);
             this.commandButton.Text = "Input Command";
+            this.commandButton.Click += new System.EventHandler(this.commandButton_Click);
             // 
             // toolStripButton4
             // 
