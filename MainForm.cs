@@ -5,6 +5,7 @@ namespace Minecraft_Server_GUI
     public partial class MainForm : Form
     {
         #region Form Definition
+        AboutBox about = new AboutBox();
         License license = new License();
         GetServer getServer = new GetServer();
         #endregion
@@ -967,6 +968,10 @@ namespace Minecraft_Server_GUI
             {
                 console.AppendText("\n[Error] " + ex.Message);
             }
+            if (startServerOnStart == true)
+            {
+                StartServer();
+            }
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
@@ -988,9 +993,16 @@ namespace Minecraft_Server_GUI
             toolStripButton1.Enabled = true;
             toolStripButton2.Enabled = false;
             toolStripButton3.Enabled = true;
+            ThreadStart threadStart = new ThreadStart(ServerThread);
+            Thread serverThread = new Thread(threadStart);
+            serverThread.Start();
+        }
+
+        void ServerThread()
+        {
             // Create start server script
-            string[] line = new string[] { Convert.ToString(Properties.Resources.startServer) };
-            File.WriteAllLines(Settings1.Default.serverPath + "start.bat", line);
+            string[] lines = new string[] { Properties.Resources.startServer };
+            File.WriteAllLines(Settings1.Default.serverPath + "start.bat", lines);
             // Set up server process
             ProcessStartInfo serverProcessInfo = new ProcessStartInfo();
             Process serverProcess = new Process();
@@ -1009,17 +1021,18 @@ namespace Minecraft_Server_GUI
             try
             {
                 serverProcess.Start();
-                serverProcess.WaitForExit();
                 serverProcess.BeginOutputReadLine();
                 serverProcess.BeginErrorReadLine();
+                serverProcess.WaitForExit();
             }
             catch (Exception ex)
             {
                 console.AppendText("\n" + ex.Message + Environment.NewLine + ex.StackTrace);
             }
-            toolStripButton1.Enabled = false;
-            toolStripButton2.Enabled = true;
-            toolStripButton3.Enabled = false;
+            Action a1 = () => toolStripButton1.Enabled = false;
+            Action a2 = () => toolStripButton2.Enabled = true;
+            Action a3 = () => toolStripButton3.Enabled = false;
+            this.Invoke(a1, a2, a3);
         }
 
         void outputDataRecieved(object sender, DataReceivedEventArgs args)
@@ -1028,6 +1041,12 @@ namespace Minecraft_Server_GUI
             this.Invoke(writeToConsole);
             Action scrollConsole = () => console.ScrollToCaret();
             this.Invoke(scrollConsole);
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            // About
+            about.ShowDialog();
         }
     }
 }
