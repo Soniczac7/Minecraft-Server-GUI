@@ -968,6 +968,8 @@ namespace Minecraft_Server_GUI
             {
                 console.AppendText("\n[Error] " + ex.Message);
             }
+            toolStripStatusLabel1.Text = "Done!";
+            toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
             if (startServerOnStart == true)
             {
                 StartServer();
@@ -989,6 +991,8 @@ namespace Minecraft_Server_GUI
 
         void StartServer()
         {
+            toolStripStatusLabel1.Text = "Running Server...";
+            toolStripProgressBar1.Style = ProgressBarStyle.Marquee;
             console.AppendText("\nStarting server...");
             stopButton.Enabled = true;
             startButton.Enabled = false;
@@ -1032,9 +1036,13 @@ namespace Minecraft_Server_GUI
             Action a1 = () => stopButton.Enabled = false;
             Action a2 = () => startButton.Enabled = true;
             Action a3 = () => commandButton.Enabled = false;
+            Action a4 = () => toolStripStatusLabel1.Text = "Server Stopped!";
+            Action a5 = () => toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
             this.Invoke(a1);
             this.Invoke(a2);
             this.Invoke(a3);
+            this.Invoke(a4);
+            this.Invoke(a5);
         }
 
         void outputDataRecieved(object sender, DataReceivedEventArgs args)
