@@ -990,9 +990,9 @@ namespace Minecraft_Server_GUI
         void StartServer()
         {
             console.AppendText("\nStarting server...");
-            toolStripButton1.Enabled = true;
-            toolStripButton2.Enabled = false;
-            toolStripButton3.Enabled = true;
+            stopButton.Enabled = true;
+            startButton.Enabled = false;
+            commandButton.Enabled = true;
             ThreadStart threadStart = new ThreadStart(ServerThread);
             Thread serverThread = new Thread(threadStart);
             serverThread.Start();
@@ -1029,10 +1029,12 @@ namespace Minecraft_Server_GUI
             {
                 console.AppendText("\n" + ex.Message + Environment.NewLine + ex.StackTrace);
             }
-            Action a1 = () => toolStripButton1.Enabled = false;
-            Action a2 = () => toolStripButton2.Enabled = true;
-            Action a3 = () => toolStripButton3.Enabled = false;
-            this.Invoke(a1, a2, a3);
+            Action a1 = () => stopButton.Enabled = false;
+            Action a2 = () => startButton.Enabled = true;
+            Action a3 = () => commandButton.Enabled = false;
+            this.Invoke(a1);
+            this.Invoke(a2);
+            this.Invoke(a3);
         }
 
         void outputDataRecieved(object sender, DataReceivedEventArgs args)

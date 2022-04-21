@@ -33,10 +33,10 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.startButton = new System.Windows.Forms.ToolStripButton();
             this.settingsButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.stopButton = new System.Windows.Forms.ToolStripButton();
+            this.commandButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -175,10 +175,10 @@
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
+            this.startButton,
             this.settingsButton,
-            this.toolStripButton1,
-            this.toolStripButton3,
+            this.stopButton,
+            this.commandButton,
             this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -186,15 +186,15 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton2
+            // startButton
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::Minecraft_Server_GUI.Properties.Resources.start;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton2.Text = "Start Server";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.startButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.startButton.Image = global::Minecraft_Server_GUI.Properties.Resources.start;
+            this.startButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(24, 24);
+            this.startButton.Text = "Start Server";
+            this.startButton.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // settingsButton
             // 
@@ -207,25 +207,25 @@
             this.settingsButton.Text = "Settings";
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
-            // toolStripButton1
+            // stopButton
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Enabled = false;
-            this.toolStripButton1.Image = global::Minecraft_Server_GUI.Properties.Resources.stop;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "Stop Server";
+            this.stopButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.stopButton.Enabled = false;
+            this.stopButton.Image = global::Minecraft_Server_GUI.Properties.Resources.stop;
+            this.stopButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(24, 24);
+            this.stopButton.Text = "Stop Server";
             // 
-            // toolStripButton3
+            // commandButton
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Enabled = false;
-            this.toolStripButton3.Image = global::Minecraft_Server_GUI.Properties.Resources.console;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "Input Command";
+            this.commandButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.commandButton.Enabled = false;
+            this.commandButton.Image = global::Minecraft_Server_GUI.Properties.Resources.console;
+            this.commandButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.commandButton.Name = "commandButton";
+            this.commandButton.Size = new System.Drawing.Size(24, 24);
+            this.commandButton.Text = "Input Command";
             // 
             // toolStripButton4
             // 
@@ -1318,7 +1318,7 @@
         private ToolStrip toolStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripProgressBar toolStripProgressBar1;
-        private ToolStripButton toolStripButton2;
+        private ToolStripButton startButton;
         private ToolStripButton settingsButton;
         private TabControl tabControl1;
         private TabPage tabPage1;
@@ -1402,8 +1402,8 @@
         private ComboBox comboBox13;
         private ComboBox comboBox17;
         private ComboBox comboBox16;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton3;
+        private ToolStripButton stopButton;
+        private ToolStripButton commandButton;
         private ToolStripButton toolStripButton4;
     }
 }
