@@ -17,11 +17,6 @@ namespace Minecraft_Server_GUI
                 Settings1.Default.serverPath = folderBrowserDialog1.SelectedPath + @"\";
                 Settings1.Default.Save();
                 this.Close();
-
-            }
-            else
-            {
-                return;
             }
         }
 
@@ -50,11 +45,6 @@ namespace Minecraft_Server_GUI
                 MainForm.newServer = true;
                 this.Close();
             }
-            else
-            {
-                return;
-            }
-
         }
 
         private void button3_Click(object sender, EventArgs e)

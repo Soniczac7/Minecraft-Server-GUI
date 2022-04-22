@@ -112,6 +112,7 @@ namespace Minecraft_Server_GUI.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to @echo off
+        ///echo start
         ///java -Xmx1G -jar server.jar
         ///echo Server has stopped!
         ///exit.

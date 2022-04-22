@@ -7,7 +7,7 @@ namespace Minecraft_Server_GUI
         public Settings()
         {
             InitializeComponent();
-            if (Settings1.Default.startServerOnStart == true)
+            if (Settings1.Default.startServerOnStart)
             {
                 checkBox1.Checked = true;
             }
@@ -38,7 +38,7 @@ namespace Minecraft_Server_GUI
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             // Changed start server on start
-            if (checkBox1.Checked == true)
+            if (checkBox1.Checked)
             {
                 Settings1.Default.startServerOnStart = true;
             }

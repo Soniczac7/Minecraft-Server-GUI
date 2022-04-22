@@ -11,20 +11,20 @@ namespace Minecraft_Server_GUI
         #endregion
 
         #region Other Definitions
-        StreamWriter inputWriter;
+        StreamWriter? inputWriter;
         public static bool newServer = false;
-        public static bool startServerOnStart = false;
+        private static bool startServerOnStart = false;
         #endregion
 
         public MainForm()
         {
             InitializeComponent();
-            if (Settings1.Default.licenseShown == false)
+            if (!Settings1.Default.licenseShown)
             {
                 // Show the license dialog if the user has not seen the license dialog yet
                 license.ShowDialog();
             }
-            if (Settings1.Default.startServerOnStart == false)
+            if (!Settings1.Default.startServerOnStart)
             {
                 MessageBox.Show("This application is very early in development.\nExpect missing functionality and bugs.\nIf you have any issues make sure to open an issue in the github at:\nhttps://github.com/Soniczac7/Minecraft-Server-GUI/issues", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -37,7 +37,7 @@ namespace Minecraft_Server_GUI
                 // If the user has not navigated to a server before then show open server dialog
                 getServer.ShowDialog();
             }
-            if (newServer == true)
+            if (newServer)
             {
                 string[] eula = new string[]{
                     "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).",
@@ -978,7 +978,7 @@ namespace Minecraft_Server_GUI
             }
             toolStripStatusLabel1.Text = "Done!";
             toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
-            if (startServerOnStart == true)
+            if (startServerOnStart)
             {
                 StartServer();
             }
@@ -1077,12 +1077,10 @@ namespace Minecraft_Server_GUI
             CommandInput commandInput = new CommandInput();
             commandInput.ShowDialog();
             string inputText;
-            int numLines = 0;
             console.AppendText("\n > " + CommandInput.input.textBox1.Text);
             inputText = CommandInput.input.textBox1.Text;
             if (inputText.Length > 0)
             {
-                numLines++;
                 inputWriter.WriteLine(inputText);
             }
         }
@@ -1092,12 +1090,10 @@ namespace Minecraft_Server_GUI
             // Stop server
             toolStripStatusLabel1.Text = "Stopping Server...";
             string inputText;
-            int numLines = 0;
             console.AppendText("\n > stop");
             inputText = "stop";
             if (inputText.Length > 0)
             {
-                numLines++;
                 inputWriter.WriteLine(inputText);
             }
         }
