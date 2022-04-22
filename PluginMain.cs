@@ -12,9 +12,17 @@ namespace Minecraft_Server_GUI
 {
     public partial class PluginMain : Form
     {
+        public string pluginName;
         public PluginMain()
         {
             InitializeComponent();
+            pluginName = GetPlugin.getPlugin.pluginName;
+            label1.Text = pluginName;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

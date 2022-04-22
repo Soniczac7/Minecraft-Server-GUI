@@ -13,9 +13,12 @@ namespace Minecraft_Server_GUI
     public partial class GetPlugin : Form
     {
         public string pluginPath;
+        public string pluginName;
+        public static GetPlugin getPlugin;
         public GetPlugin()
         {
             InitializeComponent();
+            getPlugin = this;
         }
 
         private void GetPlugin_Load(object sender, EventArgs e)
@@ -48,7 +51,11 @@ namespace Minecraft_Server_GUI
                     DialogResult msgboxResult = MessageBox.Show("This Is A Real Plugin! Press Ok To Continue :)");
                     if (msgboxResult == DialogResult.OK)
                     {
-                        MessageBox.Show("Test");
+                        string[] pluginNameTemp;
+                        pluginNameTemp = folderBrowserDialog1.SelectedPath.Split(@"\");
+                        pluginName = pluginNameTemp[pluginNameTemp.Length - 1];
+                        PluginMain pluginMain = new PluginMain();
+                        pluginMain.Show();
                         this.Close();
                     }
                 }
