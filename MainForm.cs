@@ -983,7 +983,6 @@ namespace Minecraft_Server_GUI
                 StartServer();
             }
         }
-
         private void settingsButton_Click(object sender, EventArgs e)
         {
             // Show the settings form
@@ -1100,6 +1099,13 @@ namespace Minecraft_Server_GUI
                 numLines++;
                 inputWriter.WriteLine(inputText);
             }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            //Open Get Plugin Window
+            GetPlugin getPlugin = new GetPlugin();
+            getPlugin.ShowDialog();
         }
     }
 }
