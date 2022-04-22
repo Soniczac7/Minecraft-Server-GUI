@@ -120,6 +120,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -177,6 +178,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startButton,
             this.settingsButton,
+            this.toolStripButton1,
             this.stopButton,
             this.commandButton,
             this.toolStripButton4});
@@ -1269,6 +1271,17 @@
             this.label14.TabIndex = 13;
             this.label14.Text = "PvP";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Minecraft_Server_GUI.Properties.Resources.floppy_drive_3_5_3;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1407,5 +1420,6 @@
         private ToolStripButton stopButton;
         private ToolStripButton commandButton;
         private ToolStripButton toolStripButton4;
+        private ToolStripButton toolStripButton1;
     }
 }

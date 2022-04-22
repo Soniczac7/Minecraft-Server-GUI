@@ -83,6 +83,26 @@ namespace Minecraft_Server_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap floppy_drive_3_5_3 {
+            get {
+                object obj = ResourceManager.GetObject("floppy_drive_3_5-3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GearPluginIcon {
+            get {
+                object obj = ResourceManager.GetObject("GearPluginIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon {
             get {
                 object obj = ResourceManager.GetObject("icon", resourceCulture);
@@ -112,6 +132,7 @@ namespace Minecraft_Server_GUI.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to @echo off
+        ///echo start
         ///java -Xmx1G -jar server.jar
         ///echo Server has stopped!
         ///exit.
