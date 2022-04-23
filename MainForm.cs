@@ -1157,7 +1157,16 @@ namespace Minecraft_Server_GUI
                 "enable-rcon=" + enableRcon.Text.ToString().ToLower()
 
             };
-            File.WriteAllLines(Settings1.Default.serverPath + "server.properties", lines);
+            try
+            {
+                File.WriteAllLines(Settings1.Default.serverPath + "server.properties", lines);
+                MessageBox.Show("Successfully edited server.properties!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine(ex.StackTrace);
+            }
         }
     }
 }
