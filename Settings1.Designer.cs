@@ -46,5 +46,17 @@ namespace Minecraft_Server_GUI {
                 this["serverPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool startServerOnStart {
+            get {
+                return ((bool)(this["startServerOnStart"]));
+            }
+            set {
+                this["startServerOnStart"] = value;
+            }
+        }
     }
 }

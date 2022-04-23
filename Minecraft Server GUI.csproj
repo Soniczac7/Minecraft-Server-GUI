@@ -7,7 +7,25 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <FileVersion>0.0.0.83</FileVersion>
+    <AssemblyVersion>0.0.0.83</AssemblyVersion>
+    <Description>Minecraft Server GUI is a useful application which 
+automatically creates and hosts a 
+Minecraft server for you. 
+The only setup that you need to do is input your 
+desired server settings and click run!
+If you have any issues feel free to make an issue 
+report at:
+https://github.com/Soniczac7/Minecraft-Server-GUI/issues</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="startServer.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="startServer.bat" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
