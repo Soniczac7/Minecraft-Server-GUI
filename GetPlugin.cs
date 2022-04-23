@@ -14,13 +14,15 @@ namespace Minecraft_Server_GUI
     {
         public string pluginPath;
         public string pluginName;
+        public string pluginVersion;
+        public string pluginAuthor;
         public static GetPlugin getPlugin;
         public GetPlugin()
         {
             InitializeComponent();
             getPlugin = this;
         }
-
+        
         private void GetPlugin_Load(object sender, EventArgs e)
         {
 
@@ -69,6 +71,13 @@ namespace Minecraft_Server_GUI
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
         {
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CreatePlugin createPlugin = new CreatePlugin();
+            createPlugin.Show();
+            this.Close();
         }
     }
 }

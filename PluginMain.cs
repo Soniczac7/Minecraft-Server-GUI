@@ -13,6 +13,8 @@ namespace Minecraft_Server_GUI
     public partial class PluginMain : Form
     {
         public string pluginName;
+        public string pluginVersion;
+        public string pluginAuthor;
         public PluginMain()
         {
             InitializeComponent();
@@ -21,6 +23,16 @@ namespace Minecraft_Server_GUI
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void PvInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PluginVersion_Click(object sender, EventArgs e)
         {
 
         }

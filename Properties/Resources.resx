@@ -145,4 +145,10 @@
   <data name="floppy_drive_3_5-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\floppy_drive_3_5-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="spigot_api_1_18_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spigot-api-1.18.1.jar;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PluginName" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PluginName.iml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

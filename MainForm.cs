@@ -1107,5 +1107,10 @@ namespace Minecraft_Server_GUI
             GetPlugin getPlugin = new GetPlugin();
             getPlugin.ShowDialog();
         }
+
+        private void numericUpDown7_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

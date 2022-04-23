@@ -111,12 +111,53 @@ namespace Minecraft_Server_GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;module type=&quot;JAVA_MODULE&quot; version=&quot;4&quot;&gt;
+        ///  &lt;component name=&quot;FacetManager&quot;&gt;
+        ///    &lt;facet type=&quot;minecraft&quot; name=&quot;Minecraft&quot;&gt;
+        ///      &lt;configuration&gt;
+        ///        &lt;autoDetectTypes&gt;
+        ///          &lt;platformType&gt;SPIGOT&lt;/platformType&gt;
+        ///        &lt;/autoDetectTypes&gt;
+        ///      &lt;/configuration&gt;
+        ///    &lt;/facet&gt;
+        ///  &lt;/component&gt;
+        ///  &lt;component name=&quot;NewModuleRootManager&quot; inherit-compiler-output=&quot;true&quot;&gt;
+        ///    &lt;exclude-output /&gt;
+        ///    &lt;content url=&quot;file://$MODULE_DIR$&quot;&gt;
+        ///      &lt;sourceFolder url=&quot;file:/ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PluginName {
+            get {
+                return ResourceManager.GetString("PluginName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PK{³ST¿’×.&gt;&lt;META-INF/MANIFEST.MFóMÌËLK-.Ñ        ///K-*ÎÌÏ³R0Ô3àår,-ÉÏM,ÉLÖõÍO)ÍIÕõKÌMµRÈ/J×K*ÍÎÎ,áåâåPK
+        ///{³ST	META-INF/PK
+        ///{³STorg/PK
+        ///{³STorg/bukkit/PK
+        ///{³STorg/bukkit/advancement/PK
+        ///{³STorg/bukkit/attribute/PK
+        ///{³STorg/bukkit/block/PK
+        ///{³STorg/bukkit/block/banner/PK
+        ///{³STorg/bukkit/block/data/PK
+        ///{³ST [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string spigot_api_1_18_1 {
+            get {
+                return ResourceManager.GetString("spigot_api_1_18_1", resourceCulture);
             }
         }
         
