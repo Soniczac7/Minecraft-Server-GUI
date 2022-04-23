@@ -2,6 +2,9 @@ namespace Minecraft_Server_GUI
 {
     public partial class GetServer : Form
     {
+        public static string? serverPath = null;
+        public static bool newServer = false;
+
         public GetServer()
         {
             InitializeComponent();
@@ -14,8 +17,7 @@ namespace Minecraft_Server_GUI
             DialogResult result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                Settings1.Default.serverPath = folderBrowserDialog1.SelectedPath + @"\";
-                Settings1.Default.Save();
+                serverPath = folderBrowserDialog1.SelectedPath + @"\";
                 this.Close();
             }
         }
@@ -33,8 +35,7 @@ namespace Minecraft_Server_GUI
                 if (result == DialogResult.OK)
                 {
                     location = folderBrowserDialog1.SelectedPath + @"\server.jar";
-                    Settings1.Default.serverPath = folderBrowserDialog1.SelectedPath + @"\";
-                    Settings1.Default.Save();
+                    serverPath = folderBrowserDialog1.SelectedPath + @"\";
                 }
                 else
                 {
@@ -42,7 +43,7 @@ namespace Minecraft_Server_GUI
                 }
                 Download download = new Download("https://papermc.io/api/v2/projects/paper/versions/1.8.8/builds/445/downloads/paper-1.8.8-445.jar", location);
                 download.ShowDialog();
-                MainForm.newServer = true;
+                newServer = true;
                 this.Close();
             }
         }

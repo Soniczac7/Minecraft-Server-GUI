@@ -14,9 +14,10 @@ namespace Minecraft_Server_GUI
         StreamWriter? inputWriter;
         public static bool newServer = false;
         private static bool startServerOnStart = false;
+        public static string serverPath = Settings1.Default.serverPath;
         #endregion
 
-        public MainForm()
+        public MainForm(bool forceGetValue)
         {
             InitializeComponent();
             if (!Settings1.Default.licenseShown)
@@ -32,11 +33,16 @@ namespace Minecraft_Server_GUI
             {
                 startServerOnStart = true;
             }
-            if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
+            if (serverPath == null || serverPath == "")
             {
                 // If the user has not navigated to a server before then show open server dialog
                 getServer.ShowDialog();
             }
+            Initialize();
+        }
+
+        internal void Initialize()
+        {
             if (newServer)
             {
                 string[] eula = new string[]{
@@ -89,12 +95,12 @@ namespace Minecraft_Server_GUI
                 };
                 try
                 {
-                    FileStream eulaFile = File.Create(Settings1.Default.serverPath + "eula.txt");
+                    FileStream eulaFile = File.Create(serverPath + "eula.txt");
                     eulaFile.Close();
-                    FileStream propertiesFile = File.Create(Settings1.Default.serverPath + "server.properties");
+                    FileStream propertiesFile = File.Create(serverPath + "server.properties");
                     propertiesFile.Close();
-                    File.WriteAllLines(Settings1.Default.serverPath + "eula.txt", eula);
-                    File.WriteAllLines(Settings1.Default.serverPath + "server.properties", defaultProperties);
+                    File.WriteAllLines(serverPath + "eula.txt", eula);
+                    File.WriteAllLines(serverPath + "server.properties", defaultProperties);
                 }
                 catch (Exception ex)
                 {
@@ -109,7 +115,7 @@ namespace Minecraft_Server_GUI
                     startServerOnStart = true;
                 }
             }
-            if (Settings1.Default.serverPath == null || Settings1.Default.serverPath == "")
+            if (serverPath == null || serverPath == "")
             {
                 // If there is no server specified then finish loading
                 toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
@@ -117,12 +123,12 @@ namespace Minecraft_Server_GUI
                 return;
             }
             // A server has been specified and loading will continue
-            toolStripStatusLabel1.Text = "Loading: " + Settings1.Default.serverPath + "server.properties";
+            toolStripStatusLabel1.Text = "Loading: " + serverPath + "server.properties";
             console.AppendText("[Server] Reading server.properties");
             try
             {
                 // Read all lines of server.properties
-                string[] serverProperties = File.ReadAllLines(Settings1.Default.serverPath + "server.properties");
+                string[] serverProperties = File.ReadAllLines(serverPath + "server.properties");
                 // Process spawn-protection
                 string spawnprotectionSetting = serverProperties[2];
                 if (spawnprotectionSetting.Contains("spawn-protection"))
@@ -927,8 +933,24 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find level-seed");
                     console.AppendText("\n[Error] Failed to find level-seed in server.properties");
                 }
+                // Process motd
+                string motdSetting = serverProperties[37];
+                if (motdSetting.Contains("motd"))
+                {
+                    Debug.WriteLine("Found motd");
+                    string motd;
+                    motd = motdSetting.Remove(0, 5);
+                    Debug.WriteLine("motd value is " + motd);
+                    this.motd.Text = motd;
+                }
+                else
+                {
+                    // motd line did not contain "motd"
+                    Debug.WriteLine("Failed to find motd");
+                    console.AppendText("\n[Error] Failed to find motd in server.properties");
+                }
                 // Process enable-rcon
-                string rconSetting = serverProperties[37];
+                string rconSetting = serverProperties[38];
                 if (rconSetting.Contains("enable-rcon"))
                 {
                     Debug.WriteLine("Found enable-rcon");
@@ -955,23 +977,6 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find enable-rcon");
                     console.AppendText("\n[Error] Failed to find enable-rcon in server.properties");
                 }
-                // Process motd
-                string motdSetting = serverProperties[38];
-                if (motdSetting.Contains("motd"))
-                {
-                    Debug.WriteLine("Found motd");
-                    string motd;
-                    motd = motdSetting.Remove(0, 5);
-                    Debug.WriteLine("motd value is " + motd);
-                    this.motd.Text = motd;
-                }
-                else
-                {
-                    // motd line did not contain "motd"
-                    Debug.WriteLine("Failed to find motd");
-                    console.AppendText("\n[Error] Failed to find motd in server.properties");
-                }
-
             }
             catch (Exception ex)
             {
@@ -1015,11 +1020,11 @@ namespace Minecraft_Server_GUI
         {
             // Create start server script
             string[] lines = new string[] { Properties.Resources.startServer };
-            File.WriteAllLines(Settings1.Default.serverPath + "start.bat", lines);
+            File.WriteAllLines(serverPath + "start.bat", lines);
             // Set up server process
             ProcessStartInfo serverProcessInfo = new ProcessStartInfo();
             Process serverProcess = new Process();
-            serverProcessInfo.FileName = Settings1.Default.serverPath + "start.bat";
+            serverProcessInfo.FileName = serverPath + "start.bat";
             serverProcessInfo.CreateNoWindow = true;
             serverProcessInfo.UseShellExecute = false;
             serverProcessInfo.RedirectStandardOutput = true;
@@ -1029,7 +1034,7 @@ namespace Minecraft_Server_GUI
             serverProcess.StartInfo = serverProcessInfo;
             serverProcess.OutputDataReceived += outputDataRecieved;
             serverProcess.ErrorDataReceived += outputDataRecieved;
-            serverProcessInfo.WorkingDirectory = Settings1.Default.serverPath;
+            serverProcessInfo.WorkingDirectory = serverPath;
             // Start server and begin reading output
             try
             {
@@ -1135,9 +1140,9 @@ namespace Minecraft_Server_GUI
                 "snooper-enabled=" + snooperEnabled.Text.ToString().ToLower(),
                 "level-type=" + worldType.Text,
                 "hardcore=" + hardcore.Text.ToString().ToLower(),
-                "enable-command-blocks=" + commandBlocks.Text.ToString().ToLower(),
+                "enable-command-block=" + commandBlocks.Text.ToString().ToLower(),
                 "max-players=" + maxPlayers.Value,
-                "network-compression-threshold" + netCompression.Value,
+                "network-compression-threshold=" + netCompression.Value,
                 "max-world-size=" + maxWorldSize.Value,
                 "server-port=" + serverPort.Value,
                 "debug=" + debug.Text.ToString().ToLower(),
@@ -1159,7 +1164,7 @@ namespace Minecraft_Server_GUI
             };
             try
             {
-                File.WriteAllLines(Settings1.Default.serverPath + "server.properties", lines);
+                File.WriteAllLines(serverPath + "server.properties", lines);
                 MessageBox.Show("Successfully edited server.properties!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -1167,6 +1172,28 @@ namespace Minecraft_Server_GUI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Debug.WriteLine(ex.StackTrace);
             }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            // Open server
+            getServer.ShowDialog();
+            serverPath = GetServer.serverPath;
+            newServer = GetServer.newServer;
+            if (serverPath == "")
+            {
+                return;
+            }
+            ProcessStartInfo killInfo = new ProcessStartInfo();
+            killInfo.UseShellExecute = false;
+            killInfo.CreateNoWindow = true;
+            killInfo.FileName = "taskkill.exe";
+            killInfo.Arguments = "/f /IM java.exe";
+            Process kill = new Process();
+            kill.StartInfo = killInfo;
+            kill.Start();
+            console.Text = "";
+            Initialize();
         }
     }
 }

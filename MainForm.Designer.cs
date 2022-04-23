@@ -38,6 +38,7 @@
             this.stopButton = new System.Windows.Forms.ToolStripButton();
             this.commandButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.saveSettings = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -181,6 +182,7 @@
             this.stopButton,
             this.commandButton,
             this.toolStripButton4,
+            this.toolStripButton1,
             this.saveSettings});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -241,6 +243,17 @@
             this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton4.Text = "About";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Minecraft_Server_GUI.Properties.Resources.folderSearch;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "Open Another Server";
+            this.toolStripButton1.ToolTipText = "Open Another Server";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // saveSettings
             // 
@@ -1423,5 +1436,6 @@
         private ToolStripButton commandButton;
         private ToolStripButton toolStripButton4;
         private ToolStripButton saveSettings;
+        private ToolStripButton toolStripButton1;
     }
 }
