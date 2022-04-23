@@ -37,8 +37,8 @@ namespace Minecraft_Server_GUI
             {
                 // If the user has not navigated to a server before then show open server dialog
                 getServer.ShowDialog();
-                GetServer.serverPath = serverPath;
-                GetServer.newServer = newServer;
+                serverPath = GetServer.serverPath;
+                newServer = GetServer.newServer;
             }
             Initialize();
         }
