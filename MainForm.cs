@@ -132,7 +132,7 @@ namespace Minecraft_Server_GUI
                     spawnprotection = spawnprotectionSetting.Remove(0, 17);
                     Debug.WriteLine("spawn-protection value is " + spawnprotection);
                     decimal spawnprotectionValue = Convert.ToDecimal(spawnprotection);
-                    numericUpDown9.Value = spawnprotectionValue;
+                    spawnProtection.Value = spawnprotectionValue;
                 }
                 else
                 {
@@ -148,7 +148,7 @@ namespace Minecraft_Server_GUI
                     string generatorsettings;
                     generatorsettings = generatorsettingsSetting.Remove(0, 19);
                     Debug.WriteLine("generator-settings value is " + generatorsettings);
-                    textBox3.Text = generatorsettings;
+                    generatorSettings.Text = generatorsettings;
                 }
                 else
                 {
@@ -166,11 +166,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("force-gamemode value is " + forcegamemode);
                     if (forcegamemode == "true")
                     {
-                        comboBox17.SelectedIndex = 0;
+                        forceGamemode.SelectedIndex = 0;
                     }
                     else if (forcegamemode == "false")
                     {
-                        comboBox17.SelectedIndex = 1;
+                        forceGamemode.SelectedIndex = 1;
                     }
                     else
                     {
@@ -194,11 +194,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("allow-nether value is " + allownether);
                     if (allownether == "true")
                     {
-                        comboBox3.SelectedIndex = 0;
+                        allowNether.SelectedIndex = 0;
                     }
                     else if (allownether == "false")
                     {
-                        comboBox3.SelectedIndex = 1;
+                        allowNether.SelectedIndex = 1;
                     }
                     else
                     {
@@ -222,19 +222,19 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("gamemode value is " + gamemode);
                     if (gamemode == "0")
                     {
-                        numericUpDown10.Value = 0;
+                        this.gamemode.Value = 0;
                     }
                     else if (gamemode == "1")
                     {
-                        numericUpDown10.Value = 1;
+                        this.gamemode.Value = 1;
                     }
                     else if (gamemode == "2")
                     {
-                        numericUpDown10.Value = 2;
+                        this.gamemode.Value = 2;
                     }
                     else if (gamemode == "3")
                     {
-                        numericUpDown10.Value = 3;
+                        this.gamemode.Value = 3;
                     }
                     else
                     {
@@ -258,11 +258,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("broadcast-console-to-ops value is " + consoletoop);
                     if (consoletoop == "true")
                     {
-                        comboBox14.SelectedIndex = 0;
+                        broadcastConsoleToOps.SelectedIndex = 0;
                     }
                     else if (consoletoop == "false")
                     {
-                        comboBox14.SelectedIndex = 1;
+                        broadcastConsoleToOps.SelectedIndex = 1;
                     }
                     else
                     {
@@ -286,11 +286,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("enable-query value is " + enablequery);
                     if (enablequery == "true")
                     {
-                        comboBox10.SelectedIndex = 0;
+                        enableQuery.SelectedIndex = 0;
                     }
                     else if (enablequery == "false")
                     {
-                        comboBox10.SelectedIndex = 1;
+                        enableQuery.SelectedIndex = 1;
                     }
                     else
                     {
@@ -313,7 +313,7 @@ namespace Minecraft_Server_GUI
                     playeridletimeout = playeridletimeoutSetting.Remove(0, 20);
                     Debug.WriteLine("player-idle-timeout value is " + playeridletimeout);
                     decimal playeridletimeoutValue = Convert.ToDecimal(playeridletimeout);
-                    numericUpDown11.Value = playeridletimeoutValue;
+                    playerIdleTimeout.Value = playeridletimeoutValue;
                 }
                 else
                 {
@@ -330,7 +330,7 @@ namespace Minecraft_Server_GUI
                     difficulty = difficultySetting.Remove(0, 11);
                     Debug.WriteLine("difficulty value is " + difficulty);
                     decimal difficultyValue = Convert.ToDecimal(difficulty);
-                    numericUpDown3.Value = difficultyValue;
+                    this.difficulty.Value = difficultyValue;
                 }
                 else
                 {
@@ -348,11 +348,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("spawn-monsters value is " + spawnmonsters);
                     if (spawnmonsters == "true")
                     {
-                        comboBox4.SelectedIndex = 0;
+                        spawnMonsters.SelectedIndex = 0;
                     }
                     else if (spawnmonsters == "false")
                     {
-                        comboBox4.SelectedIndex = 1;
+                        spawnMonsters.SelectedIndex = 1;
                     }
                     else
                     {
@@ -375,7 +375,7 @@ namespace Minecraft_Server_GUI
                     oppermissionlevel = oppermissionlevelSetting.Remove(0, 20);
                     Debug.WriteLine("op-permission-level value is " + oppermissionlevel);
                     decimal oppermissionlevelValue = Convert.ToDecimal(oppermissionlevel);
-                    numericUpDown7.Value = oppermissionlevelValue;
+                    opPermLvl.Value = oppermissionlevelValue;
                 }
                 else
                 {
@@ -391,7 +391,7 @@ namespace Minecraft_Server_GUI
                     string resourcepackhash;
                     resourcepackhash = resourcepackhashSetting.Remove(0, 19);
                     Debug.WriteLine("resource-pack-hash value is " + resourcepackhash);
-                    textBox7.Text = resourcepackhash;
+                    resourcePackHash.Text = resourcepackhash;
                 }
                 else
                 {
@@ -409,11 +409,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("announce-player-achievements value is " + announceplayerachivements);
                     if (announceplayerachivements == "true")
                     {
-                        comboBox16.SelectedIndex = 0;
+                        achivements.SelectedIndex = 0;
                     }
                     else if (announceplayerachivements == "false")
                     {
-                        comboBox16.SelectedIndex = 1;
+                        achivements.SelectedIndex = 1;
                     }
                 }
                 else
@@ -431,11 +431,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("pvp value is " + pvp);
                     if (pvp == "true")
                     {
-                        comboBox5.SelectedIndex = 0;
+                        this.pvp.SelectedIndex = 0;
                     }
                     else if (pvp == "false")
                     {
-                        comboBox5.SelectedIndex = 1;
+                        this.pvp.SelectedIndex = 1;
                     }
                     else
                     {
@@ -459,11 +459,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("snooper-enabled value is " + snooperenabled);
                     if (snooperenabled == "true")
                     {
-                        comboBox13.SelectedIndex = 0;
+                        snooperEnabled.SelectedIndex = 0;
                     }
                     else if (snooperenabled == "false")
                     {
-                        comboBox13.SelectedIndex = 1;
+                        snooperEnabled.SelectedIndex = 1;
                     }
                     else
                     {
@@ -487,15 +487,15 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("level-type value is " + leveltype);
                     if (leveltype == "DEFAULT")
                     {
-                        comboBox1.SelectedIndex = 0;
+                        worldType.SelectedIndex = 0;
                     }
                     else if (leveltype == "FLAT")
                     {
-                        comboBox1.SelectedIndex = 1;
+                        worldType.SelectedIndex = 1;
                     }
                     else if (leveltype == "AMPLIFIED")
                     {
-                        comboBox1.SelectedIndex = 2;
+                        worldType.SelectedIndex = 2;
                     }
                     else
                     {
@@ -519,11 +519,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("hardcore value is " + hardcore);
                     if (hardcore == "true")
                     {
-                        comboBox7.SelectedIndex = 0;
+                        this.hardcore.SelectedIndex = 0;
                     }
                     else if (hardcore == "false")
                     {
-                        comboBox7.SelectedIndex = 1;
+                        this.hardcore.SelectedIndex = 1;
                     }
                     else
                     {
@@ -547,11 +547,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("enable-command-block value is " + commandblocks);
                     if (commandblocks == "true")
                     {
-                        comboBox15.SelectedIndex = 0;
+                        commandBlocks.SelectedIndex = 0;
                     }
                     else if (commandblocks == "false")
                     {
-                        comboBox15.SelectedIndex = 1;
+                        commandBlocks.SelectedIndex = 1;
                     }
                     else
                     {
@@ -574,7 +574,7 @@ namespace Minecraft_Server_GUI
                     maxplayers = maxplayersSetting.Remove(0, 12);
                     Debug.WriteLine("max-players value is " + maxplayers);
                     decimal maxplayersValue = Convert.ToDecimal(maxplayers);
-                    numericUpDown5.Value = maxplayersValue;
+                    maxPlayers.Value = maxplayersValue;
                 }
                 else
                 {
@@ -591,7 +591,7 @@ namespace Minecraft_Server_GUI
                     networkcompressionthreshold = networkcompressionthresholdSetting.Remove(0, 30);
                     Debug.WriteLine("network-compression-threshold value is " + networkcompressionthreshold);
                     decimal networkcompressionthresholdValue = Convert.ToDecimal(networkcompressionthreshold);
-                    numericUpDown6.Value = networkcompressionthresholdValue;
+                    netCompression.Value = networkcompressionthresholdValue;
                 }
                 else
                 {
@@ -608,7 +608,7 @@ namespace Minecraft_Server_GUI
                     maxworldsize = maxworldsizeSetting.Remove(0, 15);
                     Debug.WriteLine("max-world-size value is " + maxworldsize);
                     decimal maxworldsizeValue = Convert.ToDecimal(maxworldsize);
-                    numericUpDown1.Value = maxworldsizeValue;
+                    maxWorldSize.Value = maxworldsizeValue;
                 }
                 else
                 {
@@ -625,7 +625,7 @@ namespace Minecraft_Server_GUI
                     port = portSetting.Remove(0, 12);
                     Debug.WriteLine("server-port value is " + port);
                     decimal portValue = Convert.ToDecimal(port);
-                    numericUpDown4.Value = portValue;
+                    serverPort.Value = portValue;
                 }
                 else
                 {
@@ -643,11 +643,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("debug value is " + debug);
                     if (debug == "true")
                     {
-                        comboBox11.SelectedIndex = 0;
+                        this.debug.SelectedIndex = 0;
                     }
                     else if (debug == "false")
                     {
-                        comboBox11.SelectedIndex = 1;
+                        this.debug.SelectedIndex = 1;
                     }
                     else
                     {
@@ -669,7 +669,7 @@ namespace Minecraft_Server_GUI
                     string ip;
                     ip = ipSetting.Remove(0, 10);
                     Debug.WriteLine("server-ip value is " + ip);
-                    textBox4.Text = ip;
+                    serverIP.Text = ip;
                 }
                 else
                 {
@@ -687,11 +687,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("spawn-npcs value is " + npcs);
                     if (npcs == "true")
                     {
-                        comboBox6.SelectedIndex = 0;
+                        spawnNpcs.SelectedIndex = 0;
                     }
                     else if (npcs == "false")
                     {
-                        comboBox6.SelectedIndex = 1;
+                        spawnNpcs.SelectedIndex = 1;
                     }
                     else
                     {
@@ -715,11 +715,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("allow-flight value is " + allowflight);
                     if (allowflight == "true")
                     {
-                        comboBox18.SelectedIndex = 0;
+                        allowFlight.SelectedIndex = 0;
                     }
                     else if (allowflight == "false")
                     {
-                        comboBox18.SelectedIndex = 1;
+                        allowFlight.SelectedIndex = 1;
                     }
                     else
                     {
@@ -741,7 +741,7 @@ namespace Minecraft_Server_GUI
                     string levelname;
                     levelname = levelnameSetting.Remove(0, 11);
                     Debug.WriteLine("level-name value is " + levelname);
-                    textBox1.Text = levelname;
+                    worldName.Text = levelname;
                 }
                 else
                 {
@@ -758,7 +758,7 @@ namespace Minecraft_Server_GUI
                     view = viewSetting.Remove(0, 14);
                     Debug.WriteLine("view-distance value is " + view);
                     decimal viewValue = Convert.ToDecimal(view);
-                    numericUpDown8.Value = viewValue;
+                    viewDistance.Value = viewValue;
                 }
                 else
                 {
@@ -774,7 +774,7 @@ namespace Minecraft_Server_GUI
                     string resource;
                     resource = resourceSetting.Remove(0, 14);
                     Debug.WriteLine("resource-pack value is " + resource);
-                    textBox6.Text = resource;
+                    resourcePack.Text = resource;
                 }
                 else
                 {
@@ -792,11 +792,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("spawn-animals value is " + spawnanimals);
                     if (spawnanimals == "true")
                     {
-                        comboBox19.SelectedIndex = 0;
+                        spawnAnimals.SelectedIndex = 0;
                     }
                     else if (spawnanimals == "false")
                     {
-                        comboBox19.SelectedIndex = 1;
+                        spawnAnimals.SelectedIndex = 1;
                     }
                     else
                     {
@@ -820,11 +820,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("white-list value is " + whitelist);
                     if (whitelist == "true")
                     {
-                        comboBox9.SelectedIndex = 0;
+                        this.whitelist.SelectedIndex = 0;
                     }
                     else if (whitelist == "false")
                     {
-                        comboBox9.SelectedIndex = 1;
+                        this.whitelist.SelectedIndex = 1;
                     }
                     else
                     {
@@ -848,11 +848,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("generate-structures value is " + generatestructures);
                     if (generatestructures == "true")
                     {
-                        comboBox2.SelectedIndex = 0;
+                        generateStructures.SelectedIndex = 0;
                     }
                     else if (generatestructures == "false")
                     {
-                        comboBox2.SelectedIndex = 1;
+                        generateStructures.SelectedIndex = 1;
                     }
                     else
                     {
@@ -876,11 +876,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("online-mode value is " + online);
                     if (online == "true")
                     {
-                        comboBox8.SelectedIndex = 0;
+                        onlineMode.SelectedIndex = 0;
                     }
                     else if (online == "false")
                     {
-                        comboBox8.SelectedIndex = 1;
+                        onlineMode.SelectedIndex = 1;
                     }
                     else
                     {
@@ -903,7 +903,7 @@ namespace Minecraft_Server_GUI
                     buildheight = buildheightSetting.Remove(0, 17);
                     Debug.WriteLine("max-build-height value is " + buildheight);
                     decimal buildheightValue = Convert.ToDecimal(buildheight);
-                    numericUpDown2.Value = buildheightValue;
+                    maxBuildHeight.Value = buildheightValue;
                 }
                 else
                 {
@@ -919,7 +919,7 @@ namespace Minecraft_Server_GUI
                     string seed;
                     seed = seedSetting.Remove(0, 11);
                     Debug.WriteLine("level-seed value is " + seed);
-                    textBox2.Text = seed;
+                    worldSeed.Text = seed;
                 }
                 else
                 {
@@ -937,11 +937,11 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("enable-rcon value is " + rcon);
                     if (rcon == "true")
                     {
-                        comboBox12.SelectedIndex = 0;
+                        enableRcon.SelectedIndex = 0;
                     }
                     else if (rcon == "false")
                     {
-                        comboBox12.SelectedIndex = 1;
+                        enableRcon.SelectedIndex = 1;
                     }
                     else
                     {
@@ -963,7 +963,7 @@ namespace Minecraft_Server_GUI
                     string motd;
                     motd = motdSetting.Remove(0, 5);
                     Debug.WriteLine("motd value is " + motd);
-                    textBox5.Text = motd;
+                    this.motd.Text = motd;
                 }
                 else
                 {
@@ -971,6 +971,7 @@ namespace Minecraft_Server_GUI
                     Debug.WriteLine("Failed to find motd");
                     console.AppendText("\n[Error] Failed to find motd in server.properties");
                 }
+
             }
             catch (Exception ex)
             {
@@ -1096,6 +1097,67 @@ namespace Minecraft_Server_GUI
             {
                 inputWriter.WriteLine(inputText);
             }
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 1)
+            {
+                saveSettings.Visible = true;
+            }
+            else
+            {
+                saveSettings.Visible = false;
+            }
+        }
+
+        private void saveSettings_Click(object sender, EventArgs e)
+        {
+            string[] lines = new string[]
+            {
+                "#Minecraft server properties",
+                "#" + DateTime.Now.ToString(),
+                "spawn-protection=" + spawnProtection.Value,
+                "generator-settings=" + generatorSettings.Text,
+                "force-gamemode=" + forceGamemode.Text.ToString().ToLower(),
+                "allow-nether=" + allowNether.Text.ToString().ToLower(),
+                "gamemode=" + gamemode.Value,
+                "broadcast-console-to-ops=" + broadcastConsoleToOps.Text.ToString().ToLower(),
+                "enable-query=" + enableQuery.Text.ToString().ToLower(),
+                "player-idle-timeout=" + playerIdleTimeout.Text,
+                "difficulty=" + difficulty.Text,
+                "spawn-monsters=" + spawnMonsters.Text.ToString().ToLower(),
+                "op-permission-level=" + opPermLvl.Text,
+                "resource-pack-hash=" + resourcePackHash.Text,
+                "announce-player-achievements=" + achivements.Text.ToString().ToLower(),
+                "pvp=" + pvp.Text.ToString().ToLower(),
+                "snooper-enabled=" + snooperEnabled.Text.ToString().ToLower(),
+                "level-type=" + worldType.Text,
+                "hardcore=" + hardcore.Text.ToString().ToLower(),
+                "enable-command-blocks=" + commandBlocks.Text.ToString().ToLower(),
+                "max-players=" + maxPlayers.Value,
+                "network-compression-threshold" + netCompression.Value,
+                "max-world-size=" + maxWorldSize.Value,
+                "server-port=" + serverPort.Value,
+                "debug=" + debug.Text.ToString().ToLower(),
+                "server-ip=" + serverIP.Text,
+                "spawn-npcs=" + spawnNpcs.Text.ToString().ToLower(),
+                "allow-flight=" + allowFlight.Text.ToString().ToLower(),
+                "level-name=" + worldName.Text,
+                "view-distance=" + viewDistance.Text,
+                "resource-pack=" + resourcePack.Text,
+                "spawn-animals=" + spawnAnimals.Text.ToString().ToLower(),
+                "white-list=" + whitelist.Text.ToString().ToLower(),
+                "generate-structures=" + generateStructures.Text.ToString().ToLower(),
+                "online-mode=" + onlineMode.Text.ToString().ToLower(),
+                "max-build-height=" + maxBuildHeight.Text,
+                "level-seed=" + worldSeed.Text,
+                "motd=" + motd.Text,
+                "enable-rcon=" + enableRcon.Text.ToString().ToLower()
+
+            };
+            File.WriteAllLines(Settings1.Default.serverPath + "server.properties", lines);
         }
     }
 }
