@@ -15,6 +15,14 @@ namespace Minecraft_Server_GUI
             {
                 checkBox1.Checked = false;
             }
+            if (Settings1.Default.useUPnP)
+            {
+                checkBox2.Checked = true;
+            }
+            else
+            {
+                checkBox2.Checked = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,6 +55,20 @@ namespace Minecraft_Server_GUI
                 Settings1.Default.startServerOnStart = false;
             }
             Settings1.Default.Save();
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                Settings1.Default.useUPnP = true;
+                Settings1.Default.Save();
+            }
+            else
+            {
+                Settings1.Default.useUPnP = false;
+                Settings1.Default.Save();
+            }
         }
     }
 }

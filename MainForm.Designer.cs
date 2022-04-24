@@ -1311,6 +1311,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Minecraft Server GUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

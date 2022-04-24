@@ -58,5 +58,17 @@ namespace Minecraft_Server_GUI {
                 this["startServerOnStart"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool useUPnP {
+            get {
+                return ((bool)(this["useUPnP"]));
+            }
+            set {
+                this["useUPnP"] = value;
+            }
+        }
     }
 }

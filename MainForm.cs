@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Mono.Nat;
+using System.Diagnostics;
 
 namespace Minecraft_Server_GUI
 {
@@ -15,6 +16,8 @@ namespace Minecraft_Server_GUI
         public static bool newServer = false;
         private static bool startServerOnStart = false;
         public static string serverPath = Settings1.Default.serverPath;
+        public bool serverRunning = false;
+        public static bool useUPnP = Settings1.Default.useUPnP;
         #endregion
 
         public MainForm(bool forceGetValue)
@@ -984,10 +987,31 @@ namespace Minecraft_Server_GUI
             }
             toolStripStatusLabel1.Text = "Done!";
             toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
+            if (useUPnP)
+            {
+                NatUtility.DeviceFound += DeviceFound;
+                NatUtility.DeviceLost += DeviceLost;
+            }
             if (startServerOnStart)
             {
                 StartServer();
             }
+        }
+
+        private void DeviceFound(object sender, DeviceEventArgs args)
+        {
+            INatDevice device = args.Device;
+            Debug.WriteLine("Device Found: " + device.GetExternalIP());
+            // on device found code
+            device.CreatePortMap(new Mapping(Protocol.Tcp, Convert.ToInt32(serverPort.Value), Convert.ToInt32(serverPort.Value)));
+        }
+
+        private void DeviceLost(object sender, DeviceEventArgs args)
+        {
+            INatDevice device = args.Device;
+            Debug.WriteLine("Device Lost: " + device.GetExternalIP());
+            // on device disconnect code
+            device.DeletePortMap(new Mapping(Protocol.Tcp, Convert.ToInt32(serverPort.Value), Convert.ToInt32(serverPort.Value)));
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
@@ -1036,6 +1060,7 @@ namespace Minecraft_Server_GUI
             serverProcess.ErrorDataReceived += outputDataRecieved;
             serverProcessInfo.WorkingDirectory = serverPath;
             // Start server and begin reading output
+            serverRunning = true;
             try
             {
                 serverProcess.Start();
@@ -1061,6 +1086,7 @@ namespace Minecraft_Server_GUI
             this.Invoke(a3);
             this.Invoke(a4);
             this.Invoke(a5);
+            serverRunning = false;
         }
 
         void outputDataRecieved(object sender, DataReceivedEventArgs args)
@@ -1102,7 +1128,6 @@ namespace Minecraft_Server_GUI
             {
                 inputWriter.WriteLine(inputText);
             }
-
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -1194,6 +1219,21 @@ namespace Minecraft_Server_GUI
             kill.Start();
             console.Text = "";
             Initialize();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (serverRunning)
+            {
+                toolStripStatusLabel1.Text = "Stopping Server...";
+                string inputText;
+                console.AppendText("\n > stop");
+                inputText = "stop";
+                if (inputText.Length > 0)
+                {
+                    inputWriter.WriteLine(inputText);
+                }
+            }
         }
     }
 }
