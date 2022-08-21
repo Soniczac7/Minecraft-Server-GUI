@@ -4,7 +4,7 @@
 Minecraft Server GUI is a useful application which automatically creates and hosts a Minecraft server for you.
 The only setup that you need to do is input your desired server settings and click run!
 
-***This project has only just started and will be incomplete.***
+> THIS PROJECT HAS BEEN ABANDONED AND IS NO LONGER IN DEVELOPMENT.
 
 If you have any issues please feel free to make an issue report!
 
